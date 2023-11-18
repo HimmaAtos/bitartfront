@@ -63,3 +63,6 @@ Flutter(https://docs.flutter.dev/get-started/install) .Une fois installée , on 
   
           flutter pub get
           flutter run
+          
+**Partie frontend**
+https://github.com/HimmaAtos/BitArt
