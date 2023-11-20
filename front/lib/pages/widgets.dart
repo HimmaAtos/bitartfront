@@ -50,17 +50,21 @@ class FieldSearch extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        margin: EdgeInsets.symmetric(horizontal: 130, vertical: 10),
+        margin: EdgeInsets.symmetric(horizontal: 75, vertical: 10),
         child: Center(
           child: SizedBox(
             height: 35,
             child: TextFormField(
               decoration: InputDecoration(
                   labelText: "Search",
+                  filled: true,
+                  fillColor: Colors.white,
                   border: OutlineInputBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(30.0))),
-                  focusedBorder: OutlineInputBorder(
-                      borderSide: BorderSide(color: Colors.black)),
+                      borderRadius: BorderRadius.all(Radius.circular(30.0)),
+                      borderSide: BorderSide.none),
+                  /*focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.black)),*/
+
                   prefixIcon: Icon(Icons.search)),
             ),
           ),
@@ -81,7 +85,7 @@ class CardE extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(bottom: 5, left: 18),
+      margin: EdgeInsets.only(bottom: 18, left: 18),
       width: 180,
       child: Card(
         child: Column(children: [
@@ -90,26 +94,45 @@ class CardE extends StatelessWidget {
               child: Image.asset(
                 pathImage,
                 height: 150,
-                width: 200,
+                width: 250,
               )),
           Container(
               child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   //mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                Text(name,
-                    style:
-                        TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
-                SizedBox(
+                Expanded(
+                  child: Container(
+                    padding: EdgeInsets.only(left: 14),
+                    child: Text(
+                      name,
+                      style:
+                          TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                  ),
+                ),
+                /*SizedBox(
                   width: 10,
-                ),
-                Icon(
-                  Icons.star,
-                  color: Colors.orange,
-                  size: 15,
-                ),
-                Text(
-                  "(${evaluation})",
-                  style: TextStyle(fontSize: 12, color: Colors.green[500]),
+                ),*/
+                Container(
+                  margin: EdgeInsets.only(right: 10),
+                  child: Row(
+                    //mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Icon(
+                        Icons.star,
+                        color: Colors.orange,
+                        size: 15,
+                      ),
+                      Text(
+                        "(${evaluation})",
+                        style:
+                            TextStyle(fontSize: 12, color: Colors.green[500]),
+                      )
+                    ],
+                  ),
                 )
               ])),
           Container(
@@ -123,20 +146,26 @@ class CardE extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text(
-                  price,
-                  style: TextStyle(fontSize: 15, color: Colors.black),
+                Container(
+                  margin: EdgeInsets.only(left: 10),
+                  child: Text(
+                    price,
+                    style: TextStyle(fontSize: 15, color: Colors.black),
+                  ),
                 ),
                 Container(
-                  margin: EdgeInsets.only(bottom: 5),
+                  margin: EdgeInsets.only(bottom: 8, right: 8),
                   decoration: BoxDecoration(
                       color: Colors.orange,
-                      borderRadius: BorderRadius.all(Radius.circular(10))),
-                  width: 50,
+                      borderRadius: BorderRadius.all(Radius.circular(7))),
+                  width: 65,
                   height: 30,
                   child: Center(
-                      child:
-                          Icon(Icons.add_shopping_cart, color: Colors.white)),
+                      child: Icon(
+                    Icons.add_shopping_cart,
+                    color: Colors.white,
+                    size: 20,
+                  )),
                 )
               ],
             ),

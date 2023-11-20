@@ -11,29 +11,29 @@ class Accueil extends StatefulWidget {
 class _AccueilState extends State<Accueil> {
   final List elements = [
     {
-      "pathImage": "images/logo.png",
+      "pathImage": "images/art5.png",
       "name": "Du genre",
       "evaluation": "20",
-      "miniText": "du mini textt",
+      "miniText": "djifosjd jioo sij du mini textt",
       "price": "400\$"
     },
     {
-      "pathImage": "images/logo.png",
+      "pathImage": "images/art2.png",
       "name": "Another",
       "evaluation": "20",
       "miniText": "du mini textt",
       "price": "400\$"
     },
     {
-      "pathImage": "images/logo.png",
+      "pathImage": "images/art4.png",
       "name": "Encore Du genre",
       "evaluation": "20",
       "miniText": "du mini textt",
       "price": "800\$"
     },
     {
-      "pathImage": "images/logo.png",
-      "name": "Encore Du genre",
+      "pathImage": "images/art4.png",
+      "name": "STRONG WOMAN",
       "evaluation": "20",
       "miniText": "du mini textt",
       "price": "800\$"
@@ -71,6 +71,7 @@ class _AccueilState extends State<Accueil> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0xFFF6F9FF),
       body: SingleChildScrollView(
         child: Column(children: [
           TitleBar(),
