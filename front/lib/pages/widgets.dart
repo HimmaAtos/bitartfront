@@ -88,6 +88,7 @@ class CardE extends StatelessWidget {
       margin: EdgeInsets.only(bottom: 18, left: 18),
       width: 180,
       child: Card(
+        //shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(10))),
         child: Column(children: [
           Container(
               padding: EdgeInsets.only(bottom: 2),
