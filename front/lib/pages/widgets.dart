@@ -85,10 +85,11 @@ class CardE extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(bottom: 18, left: 18),
+      //margin: EdgeInsets.only(bottom: 10, left: 10),
       width: 180,
       child: Card(
-        //shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(10))),
+        shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.all(Radius.circular(20))),
         child: Column(children: [
           Container(
               padding: EdgeInsets.only(bottom: 2),
@@ -137,7 +138,8 @@ class CardE extends StatelessWidget {
                 )
               ])),
           Container(
-            margin: EdgeInsets.symmetric(vertical: 7),
+            //margin: EdgeInsets.symmetric(vertical: 12),
+            padding: EdgeInsets.symmetric(vertical: 12),
             child: Text(
               miniText,
               style: TextStyle(fontSize: 12, color: Colors.grey),
@@ -204,20 +206,23 @@ class CustomizedRow extends StatelessWidget {
 */
 
 Widget customRow(Map infos1, Map infos2) {
-  return Row(
-    children: [
-      CardE(
-          pathImage: infos1["pathImage"],
-          name: infos1["name"],
-          evaluation: infos1["evaluation"],
-          miniText: infos1["miniText"],
-          price: infos1["price"]),
-      CardE(
-          pathImage: infos2["pathImage"],
-          name: infos2["name"],
-          evaluation: infos2["evaluation"],
-          miniText: infos2["miniText"],
-          price: infos2["price"]),
-    ],
+  return Container(
+    margin: EdgeInsets.symmetric(horizontal: 25),
+    child: Row(
+      children: [
+        CardE(
+            pathImage: infos1["pathImage"],
+            name: infos1["name"],
+            evaluation: infos1["evaluation"],
+            miniText: infos1["miniText"],
+            price: infos1["price"]),
+        CardE(
+            pathImage: infos2["pathImage"],
+            name: infos2["name"],
+            evaluation: infos2["evaluation"],
+            miniText: infos2["miniText"],
+            price: infos2["price"]),
+      ],
+    ),
   );
 }

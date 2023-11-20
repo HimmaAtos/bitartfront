@@ -11,7 +11,7 @@ class Accueil extends StatefulWidget {
 class _AccueilState extends State<Accueil> {
   final List elements = [
     {
-      "pathImage": "images/art5.png",
+      "pathImage": "images/art4.png",
       "name": "Du genre",
       "evaluation": "20",
       "miniText": "djifosjd jioo sij du mini textt",
