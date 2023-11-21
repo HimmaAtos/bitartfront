@@ -811,135 +811,104 @@ ListTile(
 */
 
 Widget bottomBar() {
-  return Container(
-    color: Color(0xDB2C736C),
-    //padding: EdgeInsets.symmetric(
-    //vertical: 16), // Increased padding for additional space
-    child: Column(
-      children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-            Column(
-              children: [
-                Icon(Icons.account_balance_wallet,
-                    color: Colors.white, size: 28),
-                SizedBox(height: 4),
-                Text(
-                  'Wallet',
-                  style: TextStyle(color: Colors.white),
-                ),
-              ],
-            ),
-            Column(
-              children: [
-                Icon(Icons.message, color: Colors.white, size: 28),
-                SizedBox(height: 4),
-                Text(
-                  'Message',
-                  style: TextStyle(color: Colors.white),
-                ),
-              ],
-            ),
-            Column(
-              children: [
-                Icon(Icons.home, color: Colors.white, size: 28),
-                SizedBox(height: 4),
-                Text(
-                  'Home',
-                  style: TextStyle(color: Colors.white),
-                ),
-              ],
-            ),
-            Column(
-              children: [
-                Icon(Icons.notifications, color: Colors.white, size: 28),
-                SizedBox(height: 4),
-                Text(
-                  'Notification',
-                  style: TextStyle(color: Colors.white),
-                ),
-              ],
-            ),
-            Column(
-              children: [
-                Icon(Icons.account_circle, color: Colors.white, size: 28),
-                SizedBox(height: 4),
-                Text(
-                  'Profile',
-                  style: TextStyle(color: Colors.white),
-                ),
-              ],
-            ),
-          ],
+  return BottomAppBar(
+    height: 50,
+    color: Color(0xFF2C736C),
+    child: Container(
+      padding: EdgeInsets.symmetric(horizontal: 15),
+      child: Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
+        Icon(Icons.account_balance_wallet, color: Colors.white, size: 28),
+        SizedBox(height: 4),
+        Text(
+          'Wallet',
+          style: TextStyle(color: Colors.white),
         ),
-      ],
+        SizedBox(
+          width: 10,
+        ),
+        Icon(Icons.message, color: Colors.white, size: 28),
+        SizedBox(height: 4),
+        Text(
+          'Message',
+          style: TextStyle(color: Colors.white),
+        ),
+        SizedBox(
+          width: 10,
+        ),
+        Icon(Icons.home, color: Colors.white, size: 28),
+        SizedBox(height: 4),
+        Text(
+          'Home',
+          style: TextStyle(color: Colors.white),
+        ),
+        SizedBox(
+          width: 10,
+        ),
+        Icon(Icons.account_circle, color: Colors.white, size: 28),
+        SizedBox(height: 4),
+        Text(
+          'Profile',
+          style: TextStyle(color: Colors.white),
+        ),
+      ]),
     ),
   );
-}
-/*  Container(
-  color: Color(0xDB2C736C),
-  padding: EdgeInsets.symmetric(vertical: 16), // Increased padding for additional space
-  child: Column(
+  /*Row(
+    mainAxisAlignment: MainAxisAlignment.spaceAround,
     children: [
-      Row(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
+      Column(
         children: [
-          Column(
-            children: [
-              Icon(Icons.account_balance_wallet, color: Colors.white, size: 28),
-              SizedBox(height: 4),
-              Text(
-                'Wallet',
-                style: TextStyle(color: Colors.white),
-              ),
-            ],
+          Icon(Icons.account_balance_wallet, color: Colors.white, size: 28),
+          SizedBox(height: 4),
+          Text(
+            'Wallet',
+            style: TextStyle(color: Colors.white),
           ),
-          Column(
-            children: [
-              Icon(Icons.message, color: Colors.white, size: 28),
-              SizedBox(height: 4),
-              Text(
-                'Message',
-                style: TextStyle(color: Colors.white),
-              ),
-            ],
+        ],
+      ),
+      Column(
+        children: [
+          Icon(Icons.message, color: Colors.white, size: 28),
+          SizedBox(height: 4),
+          Text(
+            'Message',
+            style: TextStyle(color: Colors.white),
           ),
-          Column(
-            children: [
-              Icon(Icons.home, color: Colors.white, size: 28),
-              SizedBox(height: 4),
-              Text(
-                'Home',
-                style: TextStyle(color: Colors.white),
-              ),
-            ],
+        ],
+      ),
+      Column(
+        children: [
+          Icon(Icons.home, color: Colors.white, size: 28),
+          SizedBox(height: 4),
+          Text(
+            'Home',
+            style: TextStyle(color: Colors.white),
           ),
-          Column(
-            children: [
-              Icon(Icons.notifications, color: Colors.white, size: 28),
-              SizedBox(height: 4),
-              Text(
-                'Notification',
-                style: TextStyle(color: Colors.white),
-              ),
-            ],
+        ],
+      ),
+      Column(
+        children: [
+          Icon(Icons.notifications, color: Colors.white, size: 28),
+          SizedBox(height: 4),
+          Text(
+            'Notification',
+            style: TextStyle(color: Colors.white),
           ),
-          Column(
-            children: [
-              Icon(Icons.account_circle, color: Colors.white, size: 28),
-              SizedBox(height: 4),
-              Text(
-                'Profile',
-                style: TextStyle(color: Colors.white),
-               ),
-              ],
-             ),
-           ],
-           ),
-          ],
+        ],
+      ),
+      Column(
+        children: [
+          Icon(Icons.account_circle, color: Colors.white, size: 28),
+          SizedBox(height: 4),
+          Text(
+            'Profile',
+            style: TextStyle(color: Colors.white),
           ),
-          ),*/
+        ],
+      ),
+    ],
+  );*/
+}
 
 Widget buttonbGetStated(BuildContext context) {
   return Container(

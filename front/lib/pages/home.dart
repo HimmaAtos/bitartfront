@@ -123,7 +123,7 @@ class _HomeState extends State<Home> {
           ]),
         ),
       ),
-      bottomNavigationBar: BottomAppBar(child: bottomBar()),
+      bottomNavigationBar: bottomBar(),
     );
   }
 }
