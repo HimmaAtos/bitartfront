@@ -2,9 +2,9 @@
 // ignore_for_file: sort_child_properties_last, use_key_in_widget_constructors
 
 import 'package:flutter/material.dart';
-import 'package:front/pages/accueil.dart';
-//import 'package:front/my_flutter_app_icons.dart';
 import 'package:front/pages/home.dart';
+//import 'package:front/my_flutter_app_icons.dart';
+import 'package:front/pages/welcome.dart';
 import 'package:front/pages/register.dart';
 import 'package:front/pages/login_page.dart';
 
@@ -44,12 +44,12 @@ void main() {
   runApp(MaterialApp(
     routes: <String, WidgetBuilder>{
       "/LoginPage": (BuildContext context) => const BitArtLoginPage(),
-      "/home": (BuildContext context) => const BitArtHome(),
+      "/welcome": (BuildContext context) => const BitArtWelcome(),
       "/register": (BuildContext context) => const Register(),
-      "/acceuil": (BuildContext context) => const Accueil(),
+      "/home": (BuildContext context) => const Home(),
       // "/secret": (BuildContext context) => const SecretPage(),
     },
-    initialRoute: "/acceuil",
+    initialRoute: "/welcome",
 //>>>>>>> 5851b641431b8f202c70be18ffa27eecaa17e125
     title: 'Bit\'Art',
     debugShowCheckedModeBanner: false,
@@ -57,7 +57,7 @@ void main() {
     //   primarySwatch: Colors.blue,
     // ),
 //<<<<<<< HEAD
-    home: const Accueil(),
+    home: const BitArtWelcome(),
   ));
 
 /*
