@@ -2,11 +2,13 @@
 // ignore_for_file: sort_child_properties_last, use_key_in_widget_constructors
 
 import 'package:flutter/material.dart';
+import 'package:front/pages/detail_article.dart';
 import 'package:front/pages/home.dart';
 //import 'package:front/my_flutter_app_icons.dart';
 import 'package:front/pages/welcome.dart';
 import 'package:front/pages/register.dart';
 import 'package:front/pages/login_page.dart';
+import 'package:front/pages/welcome2.dart';
 
 /*
 import 'package:flutter/material.dart';
@@ -45,8 +47,10 @@ void main() {
     routes: <String, WidgetBuilder>{
       "/LoginPage": (BuildContext context) => const BitArtLoginPage(),
       "/welcome": (BuildContext context) => const BitArtWelcome(),
+      //"/welcome2": (BuildContext context) => const Welcome2(),
       "/register": (BuildContext context) => const Register(),
       "/home": (BuildContext context) => const Home(),
+      "/details": (BuildContext context) => BitArtDetailArticle(),
       // "/secret": (BuildContext context) => const SecretPage(),
     },
     initialRoute: "/welcome",

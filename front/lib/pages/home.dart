@@ -14,7 +14,7 @@ class _HomeState extends State<Home> {
   final List elements = [
     {
       "pathImage": "images/art4.png",
-      "name": "Du genre",
+      "name": "De l'art",
       "evaluation": "20",
       "miniText": "du mini textt encore",
       "price": "400\$"
@@ -28,7 +28,7 @@ class _HomeState extends State<Home> {
     },
     {
       "pathImage": "images/art5.png",
-      "name": "Encore Du genre",
+      "name": "Encore De l'arttt",
       "evaluation": "20",
       "miniText": "du mini textt",
       "price": "800\$"
@@ -56,7 +56,7 @@ class _HomeState extends State<Home> {
     },
     {
       "pathImage": "images/art4.png",
-      "name": "Encore Du genre",
+      "name": "Encore De l'art",
       "evaluation": "20",
       "miniText": "du mini textt",
       "price": "800\$"
