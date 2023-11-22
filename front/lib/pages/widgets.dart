@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors, unnecessary_brace_in_string_interps, avoid_unnecessary_containers
 
 import 'package:flutter/material.dart';
+import 'package:front/models/ArticleModel.dart';
 
 class TitleBar extends StatelessWidget {
   const TitleBar({super.key});
@@ -166,10 +167,25 @@ class CardE extends StatelessWidget {
                   width: 65,
                   height: 30,
                   child: Center(
-                      child: Icon(
-                    Icons.add_shopping_cart,
+                      child: IconButton(
+                    onPressed: () {
+                      Navigator.pushNamed(
+                        context,
+                        "/details",
+                        arguments: ArticleModel(
+                          pathImage: pathImage,
+                          name: name,
+                          description: miniText,
+                          prix: price,
+                          evaluation: evaluation,
+                        ),
+                      );
+                    },
+                    icon: Icon(
+                      Icons.add_shopping_cart,
+                      size: 20,
+                    ),
                     color: Colors.white,
-                    size: 20,
                   )),
                 )
               ],

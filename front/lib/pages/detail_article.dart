@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:front/models/ArticleModel.dart';
+import 'package:front/pages/widgets.dart';
 
 class BitArtDetailArticle extends StatefulWidget {
   const BitArtDetailArticle({Key? key}) : super(key: key);
@@ -11,13 +12,15 @@ class BitArtDetailArticle extends StatefulWidget {
 }
 
 class _BitArtDetailArticleState extends State<BitArtDetailArticle> {
+  static const routeName = '/details';
   @override
   Widget build(BuildContext context) {
-    //final args = ModalRoute.of(context)!.settings.arguments as ArticleModel;
+    final args = ModalRoute.of(context)!.settings.arguments as ArticleModel;
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
+          //mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             // Your AppBar-like section without AppBar
             Container(
@@ -79,7 +82,7 @@ class _BitArtDetailArticleState extends State<BitArtDetailArticle> {
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(16),
                   child: Image(
-                    image: AssetImage("images/oeuvre.jpg"),
+                    image: AssetImage(args.pathImage),
                     fit: BoxFit.cover,
                   ),
                 ),
@@ -87,7 +90,7 @@ class _BitArtDetailArticleState extends State<BitArtDetailArticle> {
             ),
             SizedBox(height: 8),
             // Price with Yellow Star
-// Details: Title, Price, and Star
+            // Details: Title, Price, and Star
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 16),
               child: Column(
@@ -110,7 +113,7 @@ class _BitArtDetailArticleState extends State<BitArtDetailArticle> {
                                   style: TextStyle(fontWeight: FontWeight.bold),
                                 ),
                                 TextSpan(
-                                  text: ' charette',
+                                  text: args.name,
                                 ),
                               ],
                             ),
@@ -138,7 +141,7 @@ class _BitArtDetailArticleState extends State<BitArtDetailArticle> {
                         children: [
                           SizedBox(height: 8),
                           Text(
-                            '\$400',
+                            "\$ ${args.prix}",
                             style: TextStyle(
                                 fontSize: 18, fontWeight: FontWeight.bold),
                           ),
@@ -152,7 +155,7 @@ class _BitArtDetailArticleState extends State<BitArtDetailArticle> {
                                 size: 18,
                               ),
                               Text(
-                                '(123)',
+                                '(${args.evaluation})',
                                 //style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                               ),
                             ],
@@ -207,8 +210,7 @@ class _BitArtDetailArticleState extends State<BitArtDetailArticle> {
                       style: TextStyle(fontWeight: FontWeight.bold),
                     ),
                     TextSpan(
-                      text:
-                          ' Pére Modou va rendre visite à son cousin avec sa famille au village voisin ',
+                      text: args.description,
                     ),
                   ],
                 ),
@@ -243,8 +245,8 @@ class _BitArtDetailArticleState extends State<BitArtDetailArticle> {
                 ),
               ),
             ),
-            SizedBox(height: 20),
-            Container(
+            //SizedBox(height: 20),
+            /*Container(
               color: Color(0xDB2C736C),
               padding: EdgeInsets.symmetric(
                   vertical: 16), // Increased padding for additional space
@@ -310,10 +312,11 @@ class _BitArtDetailArticleState extends State<BitArtDetailArticle> {
                   ),
                 ],
               ),
-            ),
+            )*/
           ],
         ),
       ),
+      bottomNavigationBar: bottomBar(),
     );
   }
 }

@@ -53,7 +53,7 @@ void main() {
       "/details": (BuildContext context) => BitArtDetailArticle(),
       // "/secret": (BuildContext context) => const SecretPage(),
     },
-    initialRoute: "/welcome",
+    initialRoute: "/home",
 //>>>>>>> 5851b641431b8f202c70be18ffa27eecaa17e125
     title: 'Bit\'Art',
     debugShowCheckedModeBanner: false,
