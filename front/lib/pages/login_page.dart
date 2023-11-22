@@ -72,19 +72,23 @@ class _BitArtLoginPageState extends State<BitArtLoginPage> {
                     children: [
                       Expanded(
                         flex: 4,
-                          child: Container(
+                        child: Container(
                           padding: EdgeInsets.only(top: 30, left: 30),
                           child: SizedBox(
                             width: 300,
                             child: TextField(
+                              controller: emailController,
                               obscureText: false,
-                              style: TextStyle(color: Colors.black), // Set text color
+                              style: TextStyle(
+                                  color: Colors.black), // Set text color
                               decoration: InputDecoration(
                                 filled: true,
-                                fillColor: Colors.grey[200], // Set light gray background color
+                                fillColor: Colors.grey[
+                                    200], // Set light gray background color
                                 border: OutlineInputBorder(
                                   borderSide: BorderSide.none, // Remove border
-                                  borderRadius: BorderRadius.circular(5), // Add border radius
+                                  borderRadius: BorderRadius.circular(
+                                      5), // Add border radius
                                 ),
                                 hintText: 'E-mail',
                               ),
@@ -95,12 +99,15 @@ class _BitArtLoginPageState extends State<BitArtLoginPage> {
                       Expanded(
                         flex: 1,
                         child: Container(
-                          padding: EdgeInsets.only(top: 15, right: 2, bottom: 15),
+                          padding:
+                              EdgeInsets.only(top: 15, right: 2, bottom: 15),
                           margin: EdgeInsets.only(right: 17),
-                          child: Icon(Icons.email, size: 30, color: Colors.white),
+                          child:
+                              Icon(Icons.email, size: 30, color: Colors.white),
                           decoration: BoxDecoration(
                             color: Color(0xDB2C736C),
-                            borderRadius: BorderRadius.only(topRight: Radius.circular(10)),
+                            borderRadius: BorderRadius.only(
+                                topRight: Radius.circular(10)),
                           ),
                         ),
                       ),
@@ -116,14 +123,18 @@ class _BitArtLoginPageState extends State<BitArtLoginPage> {
                           child: SizedBox(
                             width: 300,
                             child: TextField(
+                              controller: passwordController,
                               obscureText: true,
-                              style: TextStyle(color: Colors.black), // Set text color
+                              style: TextStyle(
+                                  color: Colors.black), // Set text color
                               decoration: InputDecoration(
                                 filled: true,
-                                fillColor: Colors.grey[200], // Set light gray background color
+                                fillColor: Colors.grey[
+                                    200], // Set light gray background color
                                 border: OutlineInputBorder(
                                   borderSide: BorderSide.none, // Remove border
-                                  borderRadius: BorderRadius.circular(5), // Add border radius
+                                  borderRadius: BorderRadius.circular(
+                                      5), // Add border radius
                                 ),
                                 hintText: 'Password',
                               ),
@@ -134,12 +145,15 @@ class _BitArtLoginPageState extends State<BitArtLoginPage> {
                       Expanded(
                         flex: 1,
                         child: Container(
-                          padding: EdgeInsets.only(top: 15, right: 2, bottom: 15),
+                          padding:
+                              EdgeInsets.only(top: 15, right: 2, bottom: 15),
                           margin: EdgeInsets.only(right: 17),
-                          child: Icon(Icons.lock, size: 30, color: Colors.white),
+                          child:
+                              Icon(Icons.lock, size: 30, color: Colors.white),
                           decoration: BoxDecoration(
                             color: Color(0xDB2C736C),
-                            borderRadius: BorderRadius.only(topRight: Radius.circular(10)),
+                            borderRadius: BorderRadius.only(
+                                topRight: Radius.circular(10)),
                           ),
                         ),
                       ),
@@ -158,15 +172,18 @@ class _BitArtLoginPageState extends State<BitArtLoginPage> {
                               height: 20,
                               margin: EdgeInsets.only(right: 8),
                               decoration: BoxDecoration(
-                                border: Border.all(color: Color(0xDB2C736C), width: 2),
+                                border: Border.all(
+                                    color: Color(0xDB2C736C), width: 2),
                                 borderRadius: BorderRadius.circular(3),
                               ),
                               child: Center(
-                                child:rememberMe ? Icon(
-                                  Icons.check,
-                                  size: 14,
-                                  color: Color(0xDB2C736C),
-                                ):null,
+                                child: rememberMe
+                                    ? Icon(
+                                        Icons.check,
+                                        size: 14,
+                                        color: Color(0xDB2C736C),
+                                      )
+                                    : null,
                               ),
                             ),
                             Text(
@@ -201,7 +218,15 @@ class _BitArtLoginPageState extends State<BitArtLoginPage> {
                     ),
                     child: TextButton(
                       onPressed: () {
-                        // Add your login logic here
+                        UtilisateurModel user = new UtilisateurModel(
+                            email: emailController.text,
+                            password: passwordController.text);
+
+                        UtilisateurState().login(user, context);
+                        //print(UtilisateurState().data)
+
+                        ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(content: Text("Login reussie")));
                       },
                       style: TextButton.styleFrom(
                         padding: EdgeInsets.symmetric(vertical: 10),
@@ -256,6 +281,9 @@ class _BitArtLoginPageState extends State<BitArtLoginPage> {
                       GestureDetector(
                         onTap: () {
                           // Add navigation logic to the signup screen
+                          Navigator.of(context).pushNamed(
+                            "/register",
+                          );
                         },
                         child: Text(
                           "Signup",

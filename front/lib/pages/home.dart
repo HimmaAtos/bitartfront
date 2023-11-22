@@ -1,6 +1,7 @@
 // ignore_for_file: avoid_unnecessary_containers, prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:front/models/ArticleModel.dart';
 import 'package:front/pages/widgets.dart';
 
 class Home extends StatefulWidget {
@@ -70,6 +71,7 @@ class _HomeState extends State<Home> {
     },
     {},
   ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

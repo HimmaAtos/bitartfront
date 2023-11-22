@@ -916,7 +916,7 @@ Widget buttonbGetStated(BuildContext context) {
     child: ElevatedButton(
       onPressed: () {
         Navigator.of(context).pushNamed(
-          "/home",
+          "/LoginPage",
         );
       },
       child: Text(

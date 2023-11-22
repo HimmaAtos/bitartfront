@@ -456,9 +456,7 @@ class _RegisterState extends State<Register> {
                                 print("in process");
                                 // infosNewUser["first_name"] =
                                 //   firstNameController.text;
-                                ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                                    content: Text(
-                                        "Informations valides ${infosNewUser["first_name"]}")));
+
                                 //infosNewUser["last_name"] =
                                 //   lastNameController.text;
                                 //infosNewUser["email"] = emailController.text;
@@ -475,7 +473,16 @@ class _RegisterState extends State<Register> {
                                 );
 
                                 // appel de la fonction register pour envoyer les resquetes
-                                UtilisateurState().register(user);
+                                var resultat =
+                                    UtilisateurState().register(user);
+
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                    SnackBar(
+                                        content: Text("Inscription reussie")));
+
+                                Navigator.of(context).pushNamed(
+                                  "/LoginPage",
+                                );
                               },
                               style: TextButton.styleFrom(
                                 padding: EdgeInsets.symmetric(vertical: 10),
@@ -530,7 +537,9 @@ class _RegisterState extends State<Register> {
                               ),
                               GestureDetector(
                                 onTap: () {
-                                  // Add navigation logic to the signup screen
+                                  Navigator.of(context).pushNamed(
+                                    "/LoginPage",
+                                  );
                                 },
                                 child: Text(
                                   "Login",

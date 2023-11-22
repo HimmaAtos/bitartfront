@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, deprecated_member_use
 
 import 'package:flutter/material.dart';
+import 'package:front/models/ArticleModel.dart';
 
 class BitArtDetailArticle extends StatefulWidget {
   const BitArtDetailArticle({Key? key}) : super(key: key);
@@ -12,6 +13,7 @@ class BitArtDetailArticle extends StatefulWidget {
 class _BitArtDetailArticleState extends State<BitArtDetailArticle> {
   @override
   Widget build(BuildContext context) {
+    //final args = ModalRoute.of(context)!.settings.arguments as ArticleModel;
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
