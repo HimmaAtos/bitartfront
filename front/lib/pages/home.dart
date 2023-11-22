@@ -3,6 +3,8 @@
 import 'package:flutter/material.dart';
 import 'package:front/models/ArticleModel.dart';
 import 'package:front/pages/widgets.dart';
+import 'package:front/services/articleService.dart';
+import 'package:provider/provider.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -12,6 +14,8 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  bool _init = true;
+  bool _isLoding = false;
   final List elements = [
     {
       "pathImage": "images/art4.png",
@@ -49,10 +53,11 @@ class _HomeState extends State<Home> {
       "price": "800\$"
     },
     {
-      "pathImage": "images/art5.png",
-      "name": "Encore Du genre",
+      "pathImage": "images/oeuvre.jpg",
+      "name": "Pere Modou",
       "evaluation": "20",
-      "miniText": "du mini textt",
+      "miniText":
+          "Pere Modou quitte son village lointain pour aller rendr visite a son voisin",
       "price": "800\$"
     },
     {
@@ -73,7 +78,19 @@ class _HomeState extends State<Home> {
   ];
 
   @override
+  void didChangeDependencies() async {
+    if (_init) {
+      _isLoding =
+          await Provider.of<ArticleState>(context, listen: false).getArticles();
+      setState(() {});
+    }
+    _init = false;
+    super.didChangeDependencies();
+  }
+
+  @override
   Widget build(BuildContext context) {
+    dynamic _article = Provider.of<ArticleState>(context).arts;
     return Scaffold(
       backgroundColor: Color(0xFFF6F9FF),
       appBar: AppBar(
@@ -102,10 +119,10 @@ class _HomeState extends State<Home> {
             Container(
               child: ListView.builder(
                   shrinkWrap: true,
-                  itemCount: 7,
+                  itemCount: _article.length,
                   physics: NeverScrollableScrollPhysics(),
                   itemBuilder: (context, index) {
-                    return customRow(elements[index], elements[index]);
+                    return customRow(_article[index], _article[index]);
                     /*Row(children: [
                       CardE(
                           pathImage: elements[index]["pathImage"],

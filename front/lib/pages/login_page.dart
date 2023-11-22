@@ -225,8 +225,8 @@ class _BitArtLoginPageState extends State<BitArtLoginPage> {
                         UtilisateurState().login(user, context);
                         //print(UtilisateurState().data)
 
-                        ScaffoldMessenger.of(context).showSnackBar(
-                            SnackBar(content: Text("Login reussie")));
+                        ScaffoldMessenger.of(context)
+                            .showSnackBar(SnackBar(content: Text("Bienvenue")));
                       },
                       style: TextButton.styleFrom(
                         padding: EdgeInsets.symmetric(vertical: 10),

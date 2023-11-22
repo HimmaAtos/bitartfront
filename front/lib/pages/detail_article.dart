@@ -82,7 +82,7 @@ class _BitArtDetailArticleState extends State<BitArtDetailArticle> {
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(16),
                   child: Image(
-                    image: AssetImage(args.pathImage),
+                    image: AssetImage('images/art2.png'),
                     fit: BoxFit.cover,
                   ),
                 ),
@@ -92,7 +92,7 @@ class _BitArtDetailArticleState extends State<BitArtDetailArticle> {
             // Price with Yellow Star
             // Details: Title, Price, and Star
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: 16),
+              padding: EdgeInsets.symmetric(horizontal: 16, vertical: 20),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -109,7 +109,7 @@ class _BitArtDetailArticleState extends State<BitArtDetailArticle> {
                                   TextStyle(fontSize: 18, color: Colors.black),
                               children: [
                                 TextSpan(
-                                  text: 'Titre:',
+                                  text: 'Titre :  ',
                                   style: TextStyle(fontWeight: FontWeight.bold),
                                 ),
                                 TextSpan(

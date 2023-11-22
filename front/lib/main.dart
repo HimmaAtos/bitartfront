@@ -9,6 +9,8 @@ import 'package:front/pages/welcome.dart';
 import 'package:front/pages/register.dart';
 import 'package:front/pages/login_page.dart';
 import 'package:front/pages/welcome2.dart';
+import 'package:front/services/articleService.dart';
+import 'package:provider/provider.dart';
 
 /*
 import 'package:flutter/material.dart';
@@ -43,27 +45,7 @@ void main() {
 //import 'package:hexcolor/hexcolor.dart';
 
 void main() {
-  runApp(MaterialApp(
-    routes: <String, WidgetBuilder>{
-      "/LoginPage": (BuildContext context) => const BitArtLoginPage(),
-      "/welcome": (BuildContext context) => const BitArtWelcome(),
-      //"/welcome2": (BuildContext context) => const Welcome2(),
-      "/register": (BuildContext context) => const Register(),
-      "/home": (BuildContext context) => const Home(),
-      "/details": (BuildContext context) => BitArtDetailArticle(),
-      // "/secret": (BuildContext context) => const SecretPage(),
-    },
-    initialRoute: "/home",
-//>>>>>>> 5851b641431b8f202c70be18ffa27eecaa17e125
-    title: 'Bit\'Art',
-    debugShowCheckedModeBanner: false,
-    // theme: ThemeData(
-    //   primarySwatch: Colors.blue,
-    // ),
-//<<<<<<< HEAD
-    home: const BitArtWelcome(),
-  ));
-
+  runApp(const MyApp());
 /*
 class BitArtCreateAccount extends StatelessWidget {
   @override
@@ -244,3 +226,33 @@ class BitArtCreateAccount extends StatelessWidget {
 }
 
 //>>>>>>> 5851b641431b8f202c70be18ffa27eecaa17e125
+
+class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return ChangeNotifierProvider(
+        create: (ctx) => ArticleState(),
+        child: MaterialApp(
+          routes: <String, WidgetBuilder>{
+            "/LoginPage": (BuildContext context) => const BitArtLoginPage(),
+            "/welcome": (BuildContext context) => const BitArtWelcome(),
+            //"/welcome2": (BuildContext context) => const Welcome2(),
+            "/register": (BuildContext context) => const Register(),
+            "/home": (BuildContext context) => const Home(),
+            "/details": (BuildContext context) => BitArtDetailArticle(),
+            // "/secret": (BuildContext context) => const SecretPage(),
+          },
+          initialRoute: "/register",
+//>>>>>>> 5851b641431b8f202c70be18ffa27eecaa17e125
+          title: 'Bit\'Art',
+          debugShowCheckedModeBanner: false,
+          // theme: ThemeData(
+          //   primarySwatch: Colors.blue,
+          // ),
+//<<<<<<< HEAD
+          home: const BitArtWelcome(),
+        ));
+  }
+}

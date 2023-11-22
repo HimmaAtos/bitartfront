@@ -196,7 +196,8 @@ class CardE extends StatelessWidget {
     );
   }
 }
-
+// ancien modele
+// c'est  toujours bien de les conserver
 /*
 class CustomizedRow extends StatelessWidget {
   CustomizedRow(myListe);
@@ -869,61 +870,6 @@ Widget bottomBar() {
       ]),
     ),
   );
-  /*Row(
-    mainAxisAlignment: MainAxisAlignment.spaceAround,
-    children: [
-      Column(
-        children: [
-          Icon(Icons.account_balance_wallet, color: Colors.white, size: 28),
-          SizedBox(height: 4),
-          Text(
-            'Wallet',
-            style: TextStyle(color: Colors.white),
-          ),
-        ],
-      ),
-      Column(
-        children: [
-          Icon(Icons.message, color: Colors.white, size: 28),
-          SizedBox(height: 4),
-          Text(
-            'Message',
-            style: TextStyle(color: Colors.white),
-          ),
-        ],
-      ),
-      Column(
-        children: [
-          Icon(Icons.home, color: Colors.white, size: 28),
-          SizedBox(height: 4),
-          Text(
-            'Home',
-            style: TextStyle(color: Colors.white),
-          ),
-        ],
-      ),
-      Column(
-        children: [
-          Icon(Icons.notifications, color: Colors.white, size: 28),
-          SizedBox(height: 4),
-          Text(
-            'Notification',
-            style: TextStyle(color: Colors.white),
-          ),
-        ],
-      ),
-      Column(
-        children: [
-          Icon(Icons.account_circle, color: Colors.white, size: 28),
-          SizedBox(height: 4),
-          Text(
-            'Profile',
-            style: TextStyle(color: Colors.white),
-          ),
-        ],
-      ),
-    ],
-  );*/
 }
 
 Widget buttonbGetStated(BuildContext context) {
@@ -954,3 +900,139 @@ Widget buttonbGetStated(BuildContext context) {
     ),
   );
 }
+
+// a present les champs inputs
+
+class InputField extends StatelessWidget {
+  TextEditingController? content;
+  bool hiddeContent;
+  bool isfilled;
+  Color? backgroundColor;
+  String? placeHolder;
+
+  InputField(
+      {this.content,
+      required this.hiddeContent,
+      required this.isfilled,
+      this.backgroundColor,
+      this.placeHolder});
+
+  @override
+  Widget build(BuildContext context) {
+    return TextFormField(
+      //key : validatorFirstName,
+      controller: content,
+      obscureText: hiddeContent,
+      //key : validatorFirstName,
+      /*validator: (value) {
+                                    if (value == null || value.isEmpty) {
+                                      return "Saisir une entreée valide !";
+                                    }
+                                  },*/
+
+      style: TextStyle(color: Colors.black), // Set text color
+      decoration: InputDecoration(
+        filled: isfilled,
+        fillColor: backgroundColor, // Set light gray background color
+        border: OutlineInputBorder(
+          borderSide: BorderSide.none, // Remove border
+          borderRadius: BorderRadius.circular(5), // Add border radius
+        ),
+
+        hintText: placeHolder,
+      ),
+    );
+  }
+}
+
+/*
+Container(
+                                  padding: EdgeInsets.only(top: 30, left: 30),
+                                  child: SizedBox(
+                                    width: 300,
+                                    height: 50,
+                                    child:  InputField(
+                                    content: passwordController,
+                                    hiddeContent: true,
+                                    isfilled: true,
+                                    placeHolder: "Password",
+                                    backgroundColor: Colors.grey[200],
+                                  )
+                                  ),
+                                )
+*/
+class FieldContainer extends StatelessWidget {
+  /* double margin_top, margin_bottom, margin_left, margin_right, 
+    padding_top, padding_bottom, padding_left, padding_right, width, height;*/
+  //FieldContainer({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const Placeholder();
+  }
+}
+
+
+// sample
+/*
+Row(
+                            crossAxisAlignment: CrossAxisAlignment.end,
+                            children: [
+                              Expanded(
+                                flex: 4,
+                                child: Container(
+                                  padding: EdgeInsets.only(top: 30, left: 30),
+                                  child: SizedBox(
+                                    width: 300,
+                                    height: 50,
+                                    child: TextFormField(
+                                      controller: emailController,
+                                      validator: (value) {
+                                        if (value == null || value.isEmpty) {
+                                          return "Saisir un email valide !";
+                                        }
+                                      },
+
+                                      obscureText: false,
+                                      style: TextStyle(
+                                          color:
+                                              Colors.black), // Set text color
+                                      decoration: InputDecoration(
+                                        filled: true,
+                                        fillColor: Colors.grey[
+                                            200], // Set light gray background color
+                                        border: OutlineInputBorder(
+                                          borderSide:
+                                              BorderSide.none, // Remove border
+                                          borderRadius: BorderRadius.circular(
+                                              5), // Add border radius
+                                        ),
+                                        hintText: 'Email',
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              Expanded(
+                                  flex: 1,
+                                  child: Container(
+                                    //width: 10,
+                                    padding: EdgeInsets.symmetric(vertical: 15),
+                                    margin: EdgeInsets.only(right: 30),
+                                    child: Center(
+                                      child: Icon(
+                                        Icons.mail,
+                                        size: 20,
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                    decoration: const BoxDecoration(
+                                        //border : Border.all(width : 1, color : Colors.black),
+                                        color: Color(0xDB2C736C),
+                                        borderRadius: BorderRadius.only(
+                                            topRight: Radius.circular(5),
+                                            bottomRight: Radius.circular(5))),
+                                  ))
+                            ],
+                          ),
+                                  */
