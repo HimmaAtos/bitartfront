@@ -1,8 +1,10 @@
 import 'dart:convert';
+//import 'dart:js_util';
 
 import 'package:flutter/cupertino.dart';
 import 'package:front/models/UtilisateurModel.dart';
 import 'package:http/http.dart' as http;
+
 // import 'package:localstorage/localstorage.dart';
 
 class UtilisateurState {
@@ -25,8 +27,15 @@ class UtilisateurState {
           "name": "0000"
         }),
       );
-      var data = json.decode(response.body) as Map;
+      var data = json.decode(response.body);
       print(data);
+
+      /*  
+      let's hundle the response
+       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                                    content: Text(
+                                        "Informations valides ${infosNewUser["first_name"]}")));
+      */
       /* if (data.containsKey('token')) {
         // storage.setItem('token', data['token']);
 
@@ -35,7 +44,7 @@ class UtilisateurState {
         //return false;
       }
       */
-      return true;
+      return data;
     } catch (e) {
       print("error loginnow");
       print("details de l'erreur");
@@ -45,7 +54,7 @@ class UtilisateurState {
     }
   }
 
-  Future<bool> login(UtilisateurModel user) async {
+  Future<bool> login(UtilisateurModel user, BuildContext context) async {
     try {
       String urlRegister = 'http://10.0.2.2:8000/login';
       http.Response response = await http.post(
@@ -59,7 +68,16 @@ class UtilisateurState {
         }),
       );
       var data = json.decode(response.body) as Map;
-      print(data);
+      print(response.statusCode);
+
+      if (response.statusCode == 200) {
+        Navigator.of(context).pushNamed(
+          "/home",
+        );
+
+        //storage.setItem('success', 'yes');
+      }
+
       /* if (data.containsKey('token')) {
         // storage.setItem('token', data['token']);
 

@@ -1,11 +1,12 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, sort_child_properties_last, unused_local_variable
 
 //import 'dart:html';
 //import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:front/models/UtilisateurModel.dart';
-import 'package:front/pages/Widgets.dart';
+//import 'package:front/pages/Widgets.dart';
+import 'package:front/pages/widgets.dart';
 //import 'package:front/my_flutter_app_icons.dart';
 import 'package:http/http.dart' as http;
 import './../services/utilisateurService.dart';
@@ -71,7 +72,7 @@ class _RegisterState extends State<Register> {
                       Container(
                           padding: const EdgeInsets.only(top: 30),
                           child: const Text(
-                            "CREATE ACCOUNT",
+                            "CREER UN COMPTE",
                             style: TextStyle(
                               fontSize: 20,
                               fontWeight: FontWeight.bold,
@@ -85,34 +86,15 @@ class _RegisterState extends State<Register> {
                             child: Container(
                               padding: EdgeInsets.only(top: 30, left: 30),
                               child: SizedBox(
-                                width: 300,
-                                height: 50,
-                                child: TextFormField(
-                                  //key : validatorFirstName,
-                                  controller: firstNameController,
-                                  obscureText: false,
-                                  //key : validatorFirstName,
-                                  validator: (value) {
-                                    if (value == null || value.isEmpty) {
-                                      return "Saisir une entreée valide !";
-                                    }
-                                  },
-                                  style: TextStyle(
-                                      color: Colors.black), // Set text color
-                                  decoration: InputDecoration(
-                                    filled: true,
-                                    fillColor: Colors.grey[
-                                        200], // Set light gray background color
-                                    border: OutlineInputBorder(
-                                      borderSide:
-                                          BorderSide.none, // Remove border
-                                      borderRadius: BorderRadius.circular(
-                                          5), // Add border radius
-                                    ),
-                                    hintText: 'First Name',
-                                  ),
-                                ),
-                              ),
+                                  width: 300,
+                                  height: 50,
+                                  child: InputField(
+                                    content: firstNameController,
+                                    hiddeContent: false,
+                                    isfilled: true,
+                                    placeHolder: "Prénom",
+                                    backgroundColor: Colors.grey[200],
+                                  )),
                             ),
                           ),
                           Expanded(
@@ -137,20 +119,6 @@ class _RegisterState extends State<Register> {
                               ))
                         ],
                       ),
-                      /* Row(children: [
-                        CardE(
-                            pathImage: "images/logo.png",
-                            name: "Summer Holiday",
-                            evaluation: "12",
-                            miniText: "Ceci est une palette de couleur",
-                            price: "200F"),
-                        CardE(
-                            pathImage: "images/logo.png",
-                            name: "Summer Holiday",
-                            evaluation: "12",
-                            miniText: "Ceci est une palette de couleur",
-                            price: "200"),
-                      ]),*/
                       Form(
                           child: Column(
                         children: [
@@ -162,33 +130,15 @@ class _RegisterState extends State<Register> {
                                 child: Container(
                                   padding: EdgeInsets.only(top: 30, left: 30),
                                   child: SizedBox(
-                                    width: 300,
-                                    height: 50,
-                                    child: TextFormField(
-                                      controller: lastNameController,
-                                      obscureText: false,
-                                      validator: (value) {
-                                        if (value == null || value.isEmpty) {
-                                          return "Saisir un nom valide !";
-                                        }
-                                      },
-                                      style: TextStyle(
-                                          color:
-                                              Colors.black), // Set text color
-                                      decoration: InputDecoration(
-                                        filled: true,
-                                        fillColor: Colors.grey[
-                                            200], // Set light gray background color
-                                        border: OutlineInputBorder(
-                                          borderSide:
-                                              BorderSide.none, // Remove border
-                                          borderRadius: BorderRadius.circular(
-                                              5), // Add border radius
-                                        ),
-                                        hintText: 'Last name',
-                                      ),
-                                    ),
-                                  ),
+                                      width: 300,
+                                      height: 50,
+                                      child: InputField(
+                                        content: lastNameController,
+                                        hiddeContent: false,
+                                        isfilled: true,
+                                        placeHolder: "Nom",
+                                        backgroundColor: Colors.grey[200],
+                                      )),
                                 ),
                               ),
                               Expanded(
@@ -221,34 +171,15 @@ class _RegisterState extends State<Register> {
                                 child: Container(
                                   padding: EdgeInsets.only(top: 30, left: 30),
                                   child: SizedBox(
-                                    width: 300,
-                                    height: 50,
-                                    child: TextFormField(
-                                      controller: emailController,
-                                      validator: (value) {
-                                        if (value == null || value.isEmpty) {
-                                          return "Saisir un email valide !";
-                                        }
-                                      },
-
-                                      obscureText: false,
-                                      style: TextStyle(
-                                          color:
-                                              Colors.black), // Set text color
-                                      decoration: InputDecoration(
-                                        filled: true,
-                                        fillColor: Colors.grey[
-                                            200], // Set light gray background color
-                                        border: OutlineInputBorder(
-                                          borderSide:
-                                              BorderSide.none, // Remove border
-                                          borderRadius: BorderRadius.circular(
-                                              5), // Add border radius
-                                        ),
-                                        hintText: 'Email',
-                                      ),
-                                    ),
-                                  ),
+                                      width: 300,
+                                      height: 50,
+                                      child: InputField(
+                                        content: emailController,
+                                        hiddeContent: false,
+                                        isfilled: true,
+                                        placeHolder: "Email",
+                                        backgroundColor: Colors.grey[200],
+                                      )),
                                 ),
                               ),
                               Expanded(
@@ -281,33 +212,15 @@ class _RegisterState extends State<Register> {
                                 child: Container(
                                   padding: EdgeInsets.only(top: 30, left: 30),
                                   child: SizedBox(
-                                    width: 300,
-                                    height: 50,
-                                    child: TextFormField(
-                                      controller: phoneController,
-                                      obscureText: false,
-                                      validator: (value) {
-                                        if (value == null || value.isEmpty) {
-                                          return "Saisir un numero valide !";
-                                        }
-                                      },
-                                      style: TextStyle(
-                                          color:
-                                              Colors.black), // Set text color
-                                      decoration: InputDecoration(
-                                        filled: true,
-                                        fillColor: Colors.grey[
-                                            200], // Set light gray background color
-                                        border: OutlineInputBorder(
-                                          borderSide:
-                                              BorderSide.none, // Remove border
-                                          borderRadius: BorderRadius.circular(
-                                              5), // Add border radius
-                                        ),
-                                        hintText: 'Phone',
-                                      ),
-                                    ),
-                                  ),
+                                      width: 300,
+                                      height: 50,
+                                      child: InputField(
+                                        content: phoneController,
+                                        hiddeContent: false,
+                                        isfilled: true,
+                                        placeHolder: "Numéro",
+                                        backgroundColor: Colors.grey[200],
+                                      )),
                                 ),
                               ),
                               Expanded(
@@ -340,33 +253,15 @@ class _RegisterState extends State<Register> {
                                 child: Container(
                                   padding: EdgeInsets.only(top: 30, left: 30),
                                   child: SizedBox(
-                                    width: 300,
-                                    height: 50,
-                                    child: TextFormField(
-                                      controller: passwordController,
-                                      obscureText: true,
-                                      validator: (value) {
-                                        if (value == null || value.isEmpty) {
-                                          return "Saisir un mot de passe  valide !";
-                                        }
-                                      },
-                                      style: TextStyle(
-                                          color:
-                                              Colors.black), // Set text color
-                                      decoration: InputDecoration(
-                                        filled: true,
-                                        fillColor: Colors.grey[
-                                            200], // Set light gray background color
-                                        border: OutlineInputBorder(
-                                          borderSide:
-                                              BorderSide.none, // Remove border
-                                          borderRadius: BorderRadius.circular(
-                                              5), // Add border radius
-                                        ),
-                                        hintText: 'Password',
-                                      ),
-                                    ),
-                                  ),
+                                      width: 300,
+                                      height: 50,
+                                      child: InputField(
+                                        content: passwordController,
+                                        hiddeContent: true,
+                                        isfilled: true,
+                                        placeHolder: "Mot de passe",
+                                        backgroundColor: Colors.grey[200],
+                                      )),
                                 ),
                               ),
                               Expanded(
@@ -421,7 +316,7 @@ class _RegisterState extends State<Register> {
                                     ),
                                     SizedBox(width: 5),
                                     Text(
-                                      "By continue, you accept our term of policy",
+                                      "Acceptez les termes du contrat d'usage",
                                       style: TextStyle(
                                         letterSpacing: 1,
                                         color: Color(0xDB2C736C),
@@ -456,9 +351,7 @@ class _RegisterState extends State<Register> {
                                 print("in process");
                                 // infosNewUser["first_name"] =
                                 //   firstNameController.text;
-                                ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                                    content: Text(
-                                        "Informations valides ${infosNewUser["first_name"]}")));
+
                                 //infosNewUser["last_name"] =
                                 //   lastNameController.text;
                                 //infosNewUser["email"] = emailController.text;
@@ -475,7 +368,16 @@ class _RegisterState extends State<Register> {
                                 );
 
                                 // appel de la fonction register pour envoyer les resquetes
-                                UtilisateurState().register(user);
+                                var resultat =
+                                    UtilisateurState().register(user);
+
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                    SnackBar(
+                                        content: Text("Inscription reussie")));
+
+                                Navigator.of(context).pushNamed(
+                                  "/LoginPage",
+                                );
                               },
                               style: TextButton.styleFrom(
                                 padding: EdgeInsets.symmetric(vertical: 10),
@@ -523,17 +425,19 @@ class _RegisterState extends State<Register> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Text(
-                                "Already a user? ",
+                                "Vous avez deja un compte? ",
                                 style: TextStyle(
                                   color: Colors.black,
                                 ),
                               ),
                               GestureDetector(
                                 onTap: () {
-                                  // Add navigation logic to the signup screen
+                                  Navigator.of(context).pushNamed(
+                                    "/LoginPage",
+                                  );
                                 },
                                 child: Text(
-                                  "Login",
+                                  "Se connecter",
                                   style: TextStyle(
                                     color: Colors.black,
                                     fontWeight: FontWeight.bold,
