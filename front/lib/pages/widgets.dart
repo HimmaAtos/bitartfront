@@ -59,7 +59,7 @@ class FieldSearch extends StatelessWidget {
             height: 35,
             child: TextFormField(
               decoration: InputDecoration(
-                  labelText: "Search",
+                  labelText: "Recherche",
                   filled: true,
                   fillColor: Colors.white,
                   border: OutlineInputBorder(
@@ -142,7 +142,7 @@ class CardE extends StatelessWidget {
               ])),
           Container(
             //margin: EdgeInsets.symmetric(vertical: 12),
-            padding: EdgeInsets.symmetric(vertical: 12),
+            padding: EdgeInsets.symmetric(vertical: 12, horizontal: 10),
             child: Text(
               miniText,
               style: TextStyle(fontSize: 12, color: Colors.grey),
@@ -278,14 +278,14 @@ Widget sideBard() {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'Abdou Aziz KANE',
+                        'Awa Faye',
                         style: TextStyle(
                           color: Colors.black,
                           fontSize: 18,
                         ),
                       ),
                       Text(
-                        'Artiste',
+                        'Acheteur',
                         style: TextStyle(
                           color: Colors.grey,
                           fontSize: 15,
@@ -344,7 +344,7 @@ Widget sideBard() {
             ),
           ),
           title: Text(
-            'Orders',
+            'Commandes',
             style: TextStyle(
               color: Colors.black,
               fontSize: 16,
@@ -366,7 +366,7 @@ Widget sideBard() {
             ),
           ),
           title: Text(
-            'My Space',
+            'Mon Espace',
             style: TextStyle(
               color: Colors.black,
               fontSize: 16,
@@ -396,7 +396,7 @@ Widget sideBard() {
             ),
           ),
           title: Text(
-            'Become a seller',
+            'Devenir Vendeur',
             style: TextStyle(
               color: Colors.black,
               fontSize: 16,
@@ -417,7 +417,7 @@ Widget sideBard() {
             ),
           ),
           title: Text(
-            'Customer service',
+            'Service clients',
             style: TextStyle(
               color: Colors.black,
               fontSize: 16,
@@ -447,7 +447,7 @@ Widget sideBard() {
             ),
           ),
           title: Text(
-            'Settings',
+            'Paramètres',
             style: TextStyle(
               color: Colors.black,
               fontSize: 16,
@@ -468,7 +468,7 @@ Widget sideBard() {
             ),
           ),
           title: Text(
-            'Terms & Privacy',
+            'Règle d\'usage',
             style: TextStyle(
               color: Colors.black,
               fontSize: 16,
@@ -489,7 +489,7 @@ Widget sideBard() {
             ),
           ),
           title: Text(
-            'Invite your friends join BitArt',
+            'Partager avec vos amis',
             style: TextStyle(
               color: Colors.black,
               fontSize: 16,
@@ -505,7 +505,7 @@ Widget sideBard() {
             color: Colors.amber, // Change the color to yellow
           ),
         ),
-        SizedBox(height: 90),
+        SizedBox(height: 140),
         // Log Out ListTile
         ListTile(
           leading: Container(
@@ -521,7 +521,7 @@ Widget sideBard() {
             ),
           ),
           title: Text(
-            'Log Out',
+            'Déconnexion',
             style: TextStyle(
               fontWeight: FontWeight.bold,
               color: Colors.black,
@@ -882,7 +882,7 @@ Widget buttonbGetStated(BuildContext context) {
         );
       },
       child: Text(
-        "GET STARTED",
+        "COMMENCEZ",
         style: TextStyle(color: Color(0xFF2C736C), fontSize: 30),
       ),
       style: ButtonStyle(
@@ -961,16 +961,18 @@ Container(
                                   ),
                                 )
 */
+
+/*
 class FieldContainer extends StatelessWidget {
-  /* double margin_top, margin_bottom, margin_left, margin_right, 
-    padding_top, padding_bottom, padding_left, padding_right, width, height;*/
-  //FieldContainer({super.key});
+  double margin_top, margin_bottom, margin_left, margin_right, 
+    padding_top,;
+  FieldContainer({super.key});
 
   @override
   Widget build(BuildContext context) {
     return const Placeholder();
   }
-}
+}*/
 
 
 // sample

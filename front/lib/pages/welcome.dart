@@ -22,7 +22,7 @@ class _BitArtWelcomeState extends State<BitArtWelcome> {
       decoration: BoxDecoration(
           image: DecorationImage(
               image: AssetImage(
-                "images/background.png",
+                "images/background2.png",
               ),
               fit: BoxFit.cover)),
       child: Container(

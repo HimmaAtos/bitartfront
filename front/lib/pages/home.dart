@@ -18,66 +18,66 @@ class _HomeState extends State<Home> {
   bool _isLoding = false;
   final List elements = [
     {
+      "pathImage": "images/art1.png",
+      "name": "Palette de couleur piquant",
+      "evaluation": "20",
+      "miniText": "Palete de couleurs Offrant une possibilité",
+      "price": "200"
+    },
+    {
+      "pathImage": "images/art_w.png",
+      "name": "Femme Forte",
+      "evaluation": "20",
+      "miniText": "Femme forte pilant",
+      "price": "200"
+    },
+    {
+      "pathImage": "images/art2.png",
+      "name": "Encore De l'art",
+      "evaluation": "20",
+      "miniText": "du mini textt",
+      "price": "300"
+    },
+    {
+      "pathImage": "images/art3.png",
+      "name": "Oeil du Continent",
+      "evaluation": "20",
+      "miniText": "du mini textt",
+      "price": "800"
+    },
+  ];
+  final List elements2 = [
+    {
       "pathImage": "images/art4.png",
       "name": "De l'art",
       "evaluation": "20",
       "miniText": "du mini textt encore",
-      "price": "400\$"
-    },
-    {
-      "pathImage": "images/art2.png",
-      "name": "Another",
-      "evaluation": "20",
-      "miniText": "du mini textt",
-      "price": "400\$"
+      "price": "250"
     },
     {
       "pathImage": "images/art5.png",
+      "name": "Another",
+      "evaluation": "20",
+      "miniText": "du mini textt",
+      "price": "420"
+    },
+    {
+      "pathImage": "images/bit.png",
       "name": "Encore De l'arttt",
       "evaluation": "20",
       "miniText": "du mini textt",
-      "price": "800\$"
+      "price": "800"
     },
     {
-      "pathImage": "images/art4.png",
+      "pathImage": "images/bitArt-logo.png",
       "name": "Encore Du genre",
       "evaluation": "20",
       "miniText": "du mini textt",
-      "price": "800\$"
+      "price": "850"
     },
-    {
-      "pathImage": "images/art2.png",
-      "name": "Encore Du genre",
-      "evaluation": "20",
-      "miniText": "du mini textt",
-      "price": "800\$"
-    },
-    {
-      "pathImage": "images/oeuvre.jpg",
-      "name": "Pere Modou",
-      "evaluation": "20",
-      "miniText":
-          "Pere Modou quitte son village lointain pour aller rendr visite a son voisin",
-      "price": "800\$"
-    },
-    {
-      "pathImage": "images/art4.png",
-      "name": "Encore De l'art",
-      "evaluation": "20",
-      "miniText": "du mini textt",
-      "price": "800\$"
-    },
-    {
-      "pathImage": "images/art2.png",
-      "name": "Encore Du genre",
-      "evaluation": "20",
-      "miniText": "du mini textt",
-      "price": "800\$"
-    },
-    {},
   ];
 
-  @override
+  /* @override
   void didChangeDependencies() async {
     if (_init) {
       _isLoding =
@@ -86,16 +86,16 @@ class _HomeState extends State<Home> {
     }
     _init = false;
     super.didChangeDependencies();
-  }
+  }*/
 
   @override
   Widget build(BuildContext context) {
-    dynamic _article = Provider.of<ArticleState>(context).arts;
+    //dynamic _article = Provider.of<ArticleState>(context).arts;
     return Scaffold(
       backgroundColor: Color(0xFFF6F9FF),
       appBar: AppBar(
         centerTitle: true,
-        title: Text('Market Place'),
+        title: Text('MARKET PLACE'),
         backgroundColor: Color(0xFF2C736C),
         actions: [
           Padding(
@@ -119,10 +119,10 @@ class _HomeState extends State<Home> {
             Container(
               child: ListView.builder(
                   shrinkWrap: true,
-                  itemCount: _article.length,
+                  itemCount: 4,
                   physics: NeverScrollableScrollPhysics(),
                   itemBuilder: (context, index) {
-                    return customRow(_article[index], _article[index]);
+                    return customRow(elements[index], elements2[index]);
                     /*Row(children: [
                       CardE(
                           pathImage: elements[index]["pathImage"],

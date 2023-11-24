@@ -2,7 +2,7 @@
 
 class ArticleModel {
   int? id;
-  String? pathImage;
+  String pathImage;
   String? name;
   String? evaluation;
   String? description;
@@ -10,13 +10,14 @@ class ArticleModel {
 
   ArticleModel({
     this.id,
-    this.pathImage,
+    required this.pathImage,
     this.name,
     this.evaluation,
     this.description,
     this.prix,
   });
 
+/*
   ArticleModel.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     pathImage = json['pathImage'];
@@ -24,5 +25,5 @@ class ArticleModel {
     evaluation = json['evaluation'];
     description = json['description'];
     prix = json['prix'];
-  }
+  }*/
 }

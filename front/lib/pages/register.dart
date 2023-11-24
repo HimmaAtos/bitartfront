@@ -72,7 +72,7 @@ class _RegisterState extends State<Register> {
                       Container(
                           padding: const EdgeInsets.only(top: 30),
                           child: const Text(
-                            "CREATE ACCOUNT",
+                            "CREER UN COMPTE",
                             style: TextStyle(
                               fontSize: 20,
                               fontWeight: FontWeight.bold,
@@ -92,7 +92,7 @@ class _RegisterState extends State<Register> {
                                     content: firstNameController,
                                     hiddeContent: false,
                                     isfilled: true,
-                                    placeHolder: "First Name",
+                                    placeHolder: "Prénom",
                                     backgroundColor: Colors.grey[200],
                                   )),
                             ),
@@ -136,7 +136,7 @@ class _RegisterState extends State<Register> {
                                         content: lastNameController,
                                         hiddeContent: false,
                                         isfilled: true,
-                                        placeHolder: "Last Name",
+                                        placeHolder: "Nom",
                                         backgroundColor: Colors.grey[200],
                                       )),
                                 ),
@@ -218,7 +218,7 @@ class _RegisterState extends State<Register> {
                                         content: phoneController,
                                         hiddeContent: false,
                                         isfilled: true,
-                                        placeHolder: "Phone",
+                                        placeHolder: "Numéro",
                                         backgroundColor: Colors.grey[200],
                                       )),
                                 ),
@@ -259,7 +259,7 @@ class _RegisterState extends State<Register> {
                                         content: passwordController,
                                         hiddeContent: true,
                                         isfilled: true,
-                                        placeHolder: "Password",
+                                        placeHolder: "Mot de passe",
                                         backgroundColor: Colors.grey[200],
                                       )),
                                 ),
@@ -316,7 +316,7 @@ class _RegisterState extends State<Register> {
                                     ),
                                     SizedBox(width: 5),
                                     Text(
-                                      "By continue, you accept our term of policy",
+                                      "Acceptez les termes du contrat d'usage",
                                       style: TextStyle(
                                         letterSpacing: 1,
                                         color: Color(0xDB2C736C),
@@ -425,7 +425,7 @@ class _RegisterState extends State<Register> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Text(
-                                "Already a user? ",
+                                "Vous avez deja un compte? ",
                                 style: TextStyle(
                                   color: Colors.black,
                                 ),
@@ -437,7 +437,7 @@ class _RegisterState extends State<Register> {
                                   );
                                 },
                                 child: Text(
-                                  "Login",
+                                  "Se connecter",
                                   style: TextStyle(
                                     color: Colors.black,
                                     fontWeight: FontWeight.bold,

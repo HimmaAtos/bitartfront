@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:front/models/ArticleModel.dart';
 import 'package:front/pages/widgets.dart';
+import 'package:front/constante.dart';
 
 class BitArtDetailArticle extends StatefulWidget {
   const BitArtDetailArticle({Key? key}) : super(key: key);
@@ -12,7 +13,7 @@ class BitArtDetailArticle extends StatefulWidget {
 }
 
 class _BitArtDetailArticleState extends State<BitArtDetailArticle> {
-  static const routeName = '/details';
+  // static const routeName = '/details';
   @override
   Widget build(BuildContext context) {
     final args = ModalRoute.of(context)!.settings.arguments as ArticleModel;
@@ -82,7 +83,7 @@ class _BitArtDetailArticleState extends State<BitArtDetailArticle> {
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(16),
                   child: Image(
-                    image: AssetImage('images/art2.png'),
+                    image: AssetImage(args.pathImage),
                     fit: BoxFit.cover,
                   ),
                 ),

@@ -45,7 +45,27 @@ void main() {
 //import 'package:hexcolor/hexcolor.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MaterialApp(
+    routes: <String, WidgetBuilder>{
+      "/LoginPage": (BuildContext context) => const BitArtLoginPage(),
+      "/welcome": (BuildContext context) => const BitArtWelcome(),
+      //"/welcome2": (BuildContext context) => const Welcome2(),
+      "/register": (BuildContext context) => const Register(),
+      "/home": (BuildContext context) => const Home(),
+      "/details": (BuildContext context) => BitArtDetailArticle(),
+      // "/secret": (BuildContext context) => const SecretPage(),
+    },
+    initialRoute: "/welcome",
+//>>>>>>> 5851b641431b8f202c70be18ffa27eecaa17e125
+    title: 'Bit\'Art',
+    debugShowCheckedModeBanner: false,
+    // theme: ThemeData(
+    //   primarySwatch: Colors.blue,
+    // ),
+//<<<<<<< HEAD
+    home: const BitArtWelcome(),
+  ));
+}
 /*
 class BitArtCreateAccount extends StatelessWidget {
   @override
@@ -223,10 +243,10 @@ class BitArtCreateAccount extends StatelessWidget {
   }
 }
 */
-}
+
 
 //>>>>>>> 5851b641431b8f202c70be18ffa27eecaa17e125
-
+/*
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
@@ -244,7 +264,7 @@ class MyApp extends StatelessWidget {
             "/details": (BuildContext context) => BitArtDetailArticle(),
             // "/secret": (BuildContext context) => const SecretPage(),
           },
-          initialRoute: "/register",
+          initialRoute: "/welcome",
 //>>>>>>> 5851b641431b8f202c70be18ffa27eecaa17e125
           title: 'Bit\'Art',
           debugShowCheckedModeBanner: false,
@@ -256,3 +276,4 @@ class MyApp extends StatelessWidget {
         ));
   }
 }
+*/
