@@ -2,6 +2,7 @@ import 'dart:convert';
 //import 'dart:js_util';
 
 import 'package:flutter/cupertino.dart';
+import 'package:front/constante.dart';
 import 'package:front/models/UtilisateurModel.dart';
 import 'package:http/http.dart' as http;
 
@@ -56,7 +57,7 @@ class UtilisateurState {
 
   Future<bool> login(UtilisateurModel user, BuildContext context) async {
     try {
-      String urlRegister = 'http://10.0.2.2:8000/login';
+      String urlRegister = '${backend}/login';
       http.Response response = await http.post(
         Uri.parse(urlRegister),
         headers: {
@@ -73,9 +74,12 @@ class UtilisateurState {
       if (response.statusCode == 200) {
         Navigator.of(context).pushNamed(
           "/home",
+          
         );
-
+        return true;
         //storage.setItem('success', 'yes');
+      }else{
+        return false;
       }
 
       /* if (data.containsKey('token')) {
@@ -86,13 +90,9 @@ class UtilisateurState {
         //return false;
       }
       */
-      return true;
+      
     } catch (e) {
-      print("error loginnow");
-      print("details de l'erreur");
-      print(e);
-
-      return true;
+     return false;
     }
   }
 }

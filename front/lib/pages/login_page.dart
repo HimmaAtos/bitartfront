@@ -231,12 +231,17 @@ class _BitArtLoginPageState extends State<BitArtLoginPage> {
                             UtilisateurModel user = new UtilisateurModel(
                                 email: emailController.text,
                                 password: passwordController.text);
+                            UtilisateurState().login(user, context).then((value) => {
+                              if (value) {
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                SnackBar(content: Text('Bienvenu')))
+                              }else{
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                SnackBar(content: Text('email ou mot de passe'))),
+                                
+                              }
 
-                            UtilisateurState().login(user, context);
-                            //print(UtilisateurState().data)
-
-                            ScaffoldMessenger.of(context).showSnackBar(
-                                SnackBar(content: Text("Bienvenue")));
+                            });
                           },
                           style: TextButton.styleFrom(
                             padding: EdgeInsets.symmetric(vertical: 10),

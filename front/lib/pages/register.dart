@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors, sort_child_properties_last, unused_local_variable
+// ignore_for_file: prefer_const_constructors, sort_child_properties_last, unused_local_variable, prefer_const_literals_to_create_immutables, avoid_print, avoid_unnecessary_containers
 
 //import 'dart:html';
 //import 'dart:math';
@@ -26,7 +26,6 @@ class _RegisterState extends State<Register> {
   final emailController = TextEditingController();
   final phoneController = TextEditingController();
   final passwordController = TextEditingController();
-
   final validatorFirstName = GlobalKey<FormState>();
 
   String endPoint = "/http:127.0.0.1:8000/register";
