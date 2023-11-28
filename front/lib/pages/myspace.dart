@@ -78,7 +78,11 @@ class _MySpaceState extends State<MySpace> {
       backgroundColor: Color(0xFFF6F9FF),
       appBar: AppBar(
         leading: IconButton(
+<<<<<<< HEAD
           icon: Icon(Icons.arrow_back, color: Color(0xFFF6F9FF)),
+=======
+          icon: Icon(Icons.arrow_back, color: Colors.black),
+>>>>>>> my space and other in ...
           onPressed: () {
             Navigator.pop(context);
           },
@@ -128,6 +132,7 @@ class _MySpaceState extends State<MySpace> {
           ),
         ),
       ),
+<<<<<<< HEAD
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           Navigator.of(context).pushNamed("/add");
@@ -141,3 +146,8 @@ class _MySpaceState extends State<MySpace> {
     );
   }
 }
+=======
+    );
+  }
+}
+>>>>>>> my space and other in ...

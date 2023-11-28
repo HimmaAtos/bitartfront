@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 // ignore_for_file: prefer_const_constructors, unnecessary_brace_in_string_interps, avoid_unnecessary_containers, prefer_const_literals_to_create_immutables, must_be_immutable, use_key_in_widget_constructors, sort_child_properties_last
+=======
+// ignore_for_file: prefer_const_constructors, unnecessary_brace_in_string_interps, avoid_unnecessary_containers, sized_box_for_whitespace, prefer_const_literals_to_create_immutables
+>>>>>>> my space and other in ...
 
 import 'package:flutter/material.dart';
 import 'package:front/models/ArticleModel.dart';
@@ -954,56 +958,32 @@ class InputField extends StatelessWidget {
   }
 }
 
-/*
-Container(
-                                  padding: EdgeInsets.only(top: 30, left: 30),
-                                  child: SizedBox(
-                                    width: 300,
-                                    height: 50,
-                                    child:  InputField(
-                                    content: passwordController,
-                                    hiddeContent: true,
-                                    isfilled: true,
-                                    placeHolder: "Password",
-                                    backgroundColor: Colors.grey[200],
-                                  )
-                                  ),
-                                )
-*/
+Widget TopBarMySpace(BuildContext context) {
+  return Material(
+    //color: Color(0xDB2C736C),
+    child: ListTile(
+      //selected: true,
+      tileColor: Color(0xDB2C736C),
+      leading: IconButton(
+        icon: Icon(Icons.arrow_back, color: Colors.black),
+        onPressed: () {
+          Navigator.pop(context);
+        },
+      ),
+      title: Center(
+          child: Text(
+        "MON ESPACE",
+        style: TextStyle(color: Colors.white),
+      )),
+      /*trailing: Icon(
+          Icons.add_shopping_cart,
+          color: Colors.orange,
+        )*/
+    ),
+  );
+}
 
-/*
-class FieldContainer extends StatelessWidget {
-  double margin_top, margin_bottom, margin_left, margin_right, 
-    padding_top,;
-  FieldContainer({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const Placeholder();
-  }
-}*/
-
-
-// sample
-/*
-Row(
-                            crossAxisAlignment: CrossAxisAlignment.end,
-                            children: [
-                              Expanded(
-                                flex: 4,
-                                child: Container(
-                                  padding: EdgeInsets.only(top: 30, left: 30),
-                                  child: SizedBox(
-                                    width: 300,
-                                    height: 50,
-                                    child: TextFormField(
-                                      controller: emailController,
-                                      validator: (value) {
-                                        if (value == null || value.isEmpty) {
-                                          return "Saisir un email valide !";
-                                        }
-                                      },
-
+<<<<<<< HEAD
                                       obscureText: false,
                                       style: TextStyle(
                                           color:
@@ -1048,6 +1028,9 @@ Row(
                           ),
                                   */
                                   Widget mySpaceElement(
+=======
+Widget mySpaceElement(
+>>>>>>> my space and other in ...
     String pathImage, String nom, String prix, String desc, String evaluation) {
   return Container(
     width: double.infinity,
@@ -1147,4 +1130,8 @@ Row(
       ],
     ),
   );
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> my space and other in ...
