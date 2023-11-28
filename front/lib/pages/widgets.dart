@@ -1,3 +1,4 @@
+// ignore_for_file: prefer_const_constructors, unnecessary_brace_in_string_interps, avoid_unnecessary_containers, prefer_const_literals_to_create_immutables, must_be_immutable, use_key_in_widget_constructors, sort_child_properties_last
 // ignore_for_file: prefer_const_constructors, unnecessary_brace_in_string_interps, avoid_unnecessary_containers, sized_box_for_whitespace, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
@@ -24,7 +25,7 @@ class TitleBar extends StatelessWidget {
         )),
         trailing: Icon(
           Icons.add_shopping_cart,
-          color: Colors.orange,
+          color: Colors.amber,
         ),
       ),
     );
@@ -128,7 +129,7 @@ class CardE extends StatelessWidget {
                     children: [
                       Icon(
                         Icons.star,
-                        color: Colors.orange,
+                        color: Colors.amber,
                         size: 15,
                       ),
                       Text(
@@ -162,7 +163,7 @@ class CardE extends StatelessWidget {
                 Container(
                   margin: EdgeInsets.only(bottom: 8, right: 8),
                   decoration: BoxDecoration(
-                      color: Colors.orange,
+                      color: Colors.amber,
                       borderRadius: BorderRadius.all(Radius.circular(7))),
                   width: 65,
                   height: 30,
@@ -246,7 +247,7 @@ Widget customRow(Map infos1, Map infos2) {
   );
 }
 
-Widget sideBard() {
+Widget sideBard(BuildContext context) {
   return Drawer(
     child: ListView(
       padding: EdgeInsets.zero,
@@ -365,12 +366,19 @@ Widget sideBard() {
               size: 24,
             ),
           ),
+          onTap: () {
+                              // Add navigation logic to the signup screen
+                              Navigator.of(context).pushNamed(
+                                "/myspace",
+                              );
+                            },
           title: Text(
             'Mon Espace',
             style: TextStyle(
               color: Colors.black,
               fontSize: 16,
             ),
+            
           ),
         ),
         Padding(
@@ -909,13 +917,15 @@ class InputField extends StatelessWidget {
   bool isfilled;
   Color? backgroundColor;
   String? placeHolder;
+  double? maxLength; 
 
   InputField(
       {this.content,
       required this.hiddeContent,
       required this.isfilled,
       this.backgroundColor,
-      this.placeHolder});
+      this.placeHolder,
+      this.maxLength,});
 
   @override
   Widget build(BuildContext context) {

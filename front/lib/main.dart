@@ -1,5 +1,5 @@
 //<<<<<<< HEAD
-// ignore_for_file: sort_child_properties_last, use_key_in_widget_constructors
+// ignore_for_file: sort_child_properties_last, use_key_in_widget_constructors, unused_import, prefer_const_constructors
 
 import 'package:flutter/material.dart';
 import 'package:front/pages/add_article_2.dart';
@@ -15,37 +15,6 @@ import 'package:front/services/articleService.dart';
 //import 'package:provider/provider.dart';
 //import 'package:shared_preferences/shared_preferences.dart';
 
-/*
-import 'package:flutter/material.dart';
-import 'package:front/pages/login_page.dart';
-import 'package:front/pages/my_flutter_app_icons.dart';
-*/
-
-//import 'package:hexcolor/hexcolor.dart';
-
-// code du home page  de bit'Art
-/*
-void main() {
-  // ignore: prefer_const_constructors
-  // runApp(MaterialApp(
-  //   //home: BitArtHome(),
-  //   debugShowCheckedModeBanner: false,
-  //   home: const BitArtHome(),
-  // ));
-}*/
-/*
-  runApp(MaterialApp(
-    routes: <String, WidgetBuilder>{
-      "/home": (BuildContext context) => const BitArtHome(),
-      "/register": (BuildContext context) => const Register(),
-      // "/secret": (BuildContext context) => const SecretPage(),
-    },
-    initialRoute: "/home",
-=======
-*/
-// ignore_for_file: unused_import
-
-//import 'package:hexcolor/hexcolor.dart';
 
 void main() {
   runApp(MaterialApp(
@@ -67,7 +36,7 @@ void main() {
     // theme: ThemeData(
     //   primarySwatch: Colors.blue,
     // ),
-//<<<<<<< HEAD
+
     home: const BitArtWelcome(),
   ));
 }

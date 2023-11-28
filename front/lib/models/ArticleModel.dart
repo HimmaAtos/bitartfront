@@ -7,6 +7,8 @@ class ArticleModel {
   String? evaluation;
   String? description;
   String? prix;
+  String? tools;
+  String?support;
 
   ArticleModel({
     this.id,
@@ -15,6 +17,8 @@ class ArticleModel {
     this.evaluation,
     this.description,
     this.prix,
+    this.tools,
+    this.support,
   });
 
 /*
