@@ -1,48 +1,20 @@
 //<<<<<<< HEAD
-// ignore_for_file: sort_child_properties_last, use_key_in_widget_constructors
+// ignore_for_file: sort_child_properties_last, use_key_in_widget_constructors, unused_import, prefer_const_constructors
 
 import 'package:flutter/material.dart';
 import 'package:front/pages/detail_article.dart';
 import 'package:front/pages/home.dart';
-//import 'package:front/my_flutter_app_icons.dart';
+import 'package:front/pages/success.dart';
 import 'package:front/pages/welcome.dart';
 import 'package:front/pages/register.dart';
 import 'package:front/pages/login_page.dart';
 import 'package:front/pages/welcome2.dart';
 import 'package:front/services/articleService.dart';
 import 'package:provider/provider.dart';
+import 'package:front/pages/add_article.dart';
+import 'package:front/pages/add_article2.dart';
+import 'package:front/pages/myspace.dart';
 
-/*
-import 'package:flutter/material.dart';
-import 'package:front/pages/login_page.dart';
-import 'package:front/pages/my_flutter_app_icons.dart';
-*/
-
-//import 'package:hexcolor/hexcolor.dart';
-
-// code du home page  de bit'Art
-/*
-void main() {
-  // ignore: prefer_const_constructors
-  // runApp(MaterialApp(
-  //   //home: BitArtHome(),
-  //   debugShowCheckedModeBanner: false,
-  //   home: const BitArtHome(),
-  // ));
-}*/
-/*
-  runApp(MaterialApp(
-    routes: <String, WidgetBuilder>{
-      "/home": (BuildContext context) => const BitArtHome(),
-      "/register": (BuildContext context) => const Register(),
-      // "/secret": (BuildContext context) => const SecretPage(),
-    },
-    initialRoute: "/home",
-=======
-*/
-// ignore_for_file: unused_import
-
-//import 'package:hexcolor/hexcolor.dart';
 
 void main() {
   runApp(MaterialApp(
@@ -53,16 +25,20 @@ void main() {
       "/register": (BuildContext context) => const Register(),
       "/home": (BuildContext context) => const Home(),
       "/details": (BuildContext context) => BitArtDetailArticle(),
+      "/add": (BuildContext context) => AddArticle(),
+      "/success": (BuildContext context) => Success(),
+      "/myspace": (BuildContext context) => MySpace(),
+      "/add_article2": (BuildContext context) => AddArticle2(),
       // "/secret": (BuildContext context) => const SecretPage(),
     },
     initialRoute: "/welcome",
-//>>>>>>> 5851b641431b8f202c70be18ffa27eecaa17e125
+
     title: 'Bit\'Art',
     debugShowCheckedModeBanner: false,
     // theme: ThemeData(
     //   primarySwatch: Colors.blue,
     // ),
-//<<<<<<< HEAD
+
     home: const BitArtWelcome(),
   ));
 }

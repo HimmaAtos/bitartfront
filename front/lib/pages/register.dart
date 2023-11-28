@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors, sort_child_properties_last, unused_local_variable
+// ignore_for_file: prefer_const_constructors, sort_child_properties_last, unused_local_variable, prefer_const_literals_to_create_immutables, avoid_print, avoid_unnecessary_containers
 
 //import 'dart:html';
 //import 'dart:math';
