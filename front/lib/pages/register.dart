@@ -26,7 +26,6 @@ class _RegisterState extends State<Register> {
   final emailController = TextEditingController();
   final phoneController = TextEditingController();
   final passwordController = TextEditingController();
-
   final validatorFirstName = GlobalKey<FormState>();
 
   String endPoint = "/http:127.0.0.1:8000/register";

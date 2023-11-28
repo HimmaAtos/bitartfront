@@ -1,3 +1,5 @@
+// ignore_for_file: unused_import, prefer_const_declarations, avoid_print, file_names
+
 import 'dart:convert';
 //import 'dart:js_util';
 
@@ -46,3 +48,39 @@ class ArticleState with ChangeNotifier {
   }
 }
 */
+
+Future<void> addArticle(ArticleModel article) async {
+  final String apiUrl = 'http://'; 
+
+  final response = await http.post(
+    Uri.parse(apiUrl),
+    headers: {
+      'Content-Type': 'application/json',
+    },
+     body: json.encode({
+          "image": article.pathImage,
+          "name": article.name,
+          "tools": article.tools,
+          "support": article.support,
+          "description": article.description,
+          "prix": "0000", 
+          "evaluation": "0000",
+
+        }),
+  );
+  var data = json.decode(response.body);
+      print(data);
+
+  if (response.statusCode == 200) {
+    
+    print('Article a été ajouté avec success');
+  } else {
+    
+    print(' article non ajouter');
+  }
+  
+}
+
+
+
+

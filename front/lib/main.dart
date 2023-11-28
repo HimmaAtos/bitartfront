@@ -8,16 +8,13 @@ import 'package:front/pages/success.dart';
 import 'package:front/pages/welcome.dart';
 import 'package:front/pages/register.dart';
 import 'package:front/pages/login_page.dart';
-<<<<<<< HEAD
 import 'package:front/pages/welcome2.dart';
 import 'package:front/services/articleService.dart';
 import 'package:provider/provider.dart';
 import 'package:front/pages/add_article.dart';
 import 'package:front/pages/add_article2.dart';
 import 'package:front/pages/myspace.dart';
-=======
 import 'package:front/pages/detail_article.dart';
->>>>>>> 80befc2... pull requeste
 
 
 void main() {
@@ -28,15 +25,12 @@ void main() {
       //"/welcome2": (BuildContext context) => const Welcome2(),
       "/register": (BuildContext context) => const Register(),
       "/home": (BuildContext context) => const Home(),
-<<<<<<< HEAD
       "/details": (BuildContext context) => BitArtDetailArticle(),
       "/add": (BuildContext context) => AddArticle(),
       "/success": (BuildContext context) => Success(),
       "/myspace": (BuildContext context) => MySpace(),
       "/add_article2": (BuildContext context) => AddArticle2(),
-=======
       "/detailArticle": (BuildContext context) => const BitArtDetailArticle(),
->>>>>>> 80befc2... pull requeste
       // "/secret": (BuildContext context) => const SecretPage(),
     },
     initialRoute: "/welcome",
