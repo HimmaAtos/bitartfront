@@ -1,9 +1,14 @@
 // ignore_for_file: avoid_unnecessary_containers, prefer_const_constructors, unused_import
 
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:front/models/ArticleModel.dart';
+import 'package:front/models/UtilisateurModel.dart';
+import 'package:front/widgets/sideBar_widget.dart';
 import 'package:front/pages/widgets.dart';
 import 'package:front/services/articleService.dart';
+import 'package:localstorage/localstorage.dart';
 import 'package:provider/provider.dart';
 
 class Home extends StatefulWidget {
@@ -16,6 +21,15 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   bool _init = true;
   bool _isLoding = false;
+  // late UtilisateurModel user;
+  LocalStorage storage = LocalStorage("usertoken");
+
+  @override
+  void initState() {
+    super.initState();
+  }
+  // final user = storage.getItem("user");
+  // UtilisateurModel user = JsonCodec()
   final List elements = [
     {
       "pathImage": "images/art1.png",
@@ -77,16 +91,20 @@ class _HomeState extends State<Home> {
     },
   ];
 
-  /* @override
+  @override
   void didChangeDependencies() async {
     if (_init) {
-      _isLoding =
-          await Provider.of<ArticleState>(context, listen: false).getArticles();
+      // final a = storage.getItem('user');
+      
+      // final x = jsonDecode(a);
+      // print("ok");
+      // print(x);
+      // user = UtilisateurModel.fromJson(x);
       setState(() {});
     }
     _init = false;
     super.didChangeDependencies();
-  }*/
+  }
 
   @override
   Widget build(BuildContext context) {

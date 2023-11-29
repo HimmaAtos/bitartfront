@@ -5,13 +5,15 @@ import 'package:flutter/cupertino.dart';
 import 'package:front/constante.dart';
 import 'package:front/models/UtilisateurModel.dart';
 import 'package:http/http.dart' as http;
+import 'package:localstorage/localstorage.dart';
 
 // import 'package:localstorage/localstorage.dart';
 
 class UtilisateurState {
+  LocalStorage storage = LocalStorage("usertoken");
   Future<bool> register(UtilisateurModel user) async {
     try {
-      String urlRegister = 'http://10.0.2.2:8000/register';
+      String urlRegister = '${backend}/register';
       http.Response response = await http.post(
         Uri.parse(urlRegister),
         headers: {
@@ -56,6 +58,7 @@ class UtilisateurState {
   }
 
   Future<bool> login(UtilisateurModel user, BuildContext context) async {
+    
     try {
       String urlRegister = '${backend}/login';
       http.Response response = await http.post(
@@ -69,8 +72,7 @@ class UtilisateurState {
         }),
       );
       var data = json.decode(response.body) as Map;
-      print(response.statusCode);
-
+      storage.setItem('user', response.body);
       if (response.statusCode == 200) {
         Navigator.of(context).pushNamed(
           "/home",
@@ -95,4 +97,6 @@ class UtilisateurState {
      return false;
     }
   }
+
+  
 }
