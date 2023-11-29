@@ -1,5 +1,7 @@
 // ignore_for_file: prefer_const_constructors, use_key_in_widget_constructors, sort_child_properties_last, prefer_const_literals_to_create_immutables, unused_import, avoid_print, avoid_unnecessary_containers
 
+import 'dart:html';
+
 import 'package:flutter/material.dart';
 import 'package:front/models/UtilisateurModel.dart';
 import 'package:front/services/utilisateurService.dart';
@@ -234,9 +236,18 @@ class _BitArtLoginPageState extends State<BitArtLoginPage> {
 
                             UtilisateurState().login(user, context);
                             //print(UtilisateurState().data)
-
-                            ScaffoldMessenger.of(context).showSnackBar(
-                                SnackBar(content: Text("Bienvenue")));
+                            if (window.localStorage["status"] == "succes") {
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                  SnackBar(content: Text("Bienvenue")));
+                              Navigator.of(context).pushNamed(
+                                "/home",
+                              );
+                            } else {
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                  SnackBar(
+                                      content: Text(
+                                          "Email ou mot de passe invalide")));
+                            }
                           },
                           style: TextButton.styleFrom(
                             padding: EdgeInsets.symmetric(vertical: 10),

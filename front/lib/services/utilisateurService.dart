@@ -1,14 +1,19 @@
 import 'dart:convert';
+import 'dart:html';
 //import 'dart:js_util';
 
 import 'package:flutter/cupertino.dart';
 import 'package:front/models/UtilisateurModel.dart';
+//import 'package:localstorage/localstorage.dart';
+
 import 'package:http/http.dart' as http;
 
 // import 'package:localstorage/localstorage.dart';
 
+//final my_app = new LocalStorage('my');
+
 class UtilisateurState {
-  Future<bool> register(UtilisateurModel user) async {
+  Future<bool> register(UtilisateurModel user, BuildContext context) async {
     try {
       String urlRegister = 'http://10.0.2.2:8000/register';
       http.Response response = await http.post(
@@ -28,6 +33,11 @@ class UtilisateurState {
         }),
       );
       var data = json.decode(response.body);
+      if (response.statusCode == 200) {
+        window.localStorage['status'] = "succes";
+
+        //storage.setItem('success', 'yes');
+      }
       print(data);
 
       /*  
@@ -71,9 +81,7 @@ class UtilisateurState {
       print(response.statusCode);
 
       if (response.statusCode == 200) {
-        Navigator.of(context).pushNamed(
-          "/home",
-        );
+        window.localStorage['status'] = "succes";
 
         //storage.setItem('success', 'yes');
       }

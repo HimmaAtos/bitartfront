@@ -128,6 +128,16 @@ class _MySpaceState extends State<MySpace> {
           ),
         ),
       ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.of(context).pushNamed("/add");
+        },
+        child: Icon(
+          Icons.add,
+          color: Colors.white,
+        ),
+        foregroundColor: Color(0xFFE3B71D),
+      ),
     );
   }
 }

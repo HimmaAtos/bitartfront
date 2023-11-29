@@ -246,7 +246,7 @@ Widget customRow(Map infos1, Map infos2) {
   );
 }
 
-Widget sideBard() {
+Widget sideBard(BuildContext context) {
   return Drawer(
     child: ListView(
       padding: EdgeInsets.zero,
@@ -365,11 +365,18 @@ Widget sideBard() {
               size: 24,
             ),
           ),
-          title: Text(
-            'Mon Espace',
-            style: TextStyle(
-              color: Colors.black,
-              fontSize: 16,
+          title: TextButton(
+            onPressed: () {
+              Navigator.of(context).pushNamed(
+                "/myspace",
+              );
+            },
+            child: Text(
+              'Mon Espace',
+              style: TextStyle(
+                color: Colors.black,
+                fontSize: 16,
+              ),
             ),
           ),
         ),

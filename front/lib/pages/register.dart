@@ -3,6 +3,8 @@
 //import 'dart:html';
 //import 'dart:math';
 
+import 'dart:html';
+
 import 'package:flutter/material.dart';
 import 'package:front/models/UtilisateurModel.dart';
 //import 'package:front/pages/Widgets.dart';
@@ -369,15 +371,22 @@ class _RegisterState extends State<Register> {
 
                                 // appel de la fonction register pour envoyer les resquetes
                                 var resultat =
-                                    UtilisateurState().register(user);
+                                    UtilisateurState().register(user, context);
 
-                                ScaffoldMessenger.of(context).showSnackBar(
-                                    SnackBar(
-                                        content: Text("Inscription reussie")));
-
-                                Navigator.of(context).pushNamed(
-                                  "/LoginPage",
-                                );
+                                if (window.localStorage["status"] == "succes") {
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                      SnackBar(
+                                          content:
+                                              Text("Inscription reussie")));
+                                  Navigator.of(context).pushNamed(
+                                    "/LoginPage",
+                                  );
+                                } else {
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                      SnackBar(
+                                          content: Text(
+                                              "L'inscription n'a pas aboutie")));
+                                }
                               },
                               style: TextButton.styleFrom(
                                 padding: EdgeInsets.symmetric(vertical: 10),
