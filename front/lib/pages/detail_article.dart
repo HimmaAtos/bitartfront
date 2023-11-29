@@ -83,7 +83,7 @@ class _BitArtDetailArticleState extends State<BitArtDetailArticle> {
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(16),
                   child: Image(
-                    image: AssetImage(args.pathImage),
+                    image: AssetImage(args.image ?? "image/art4.png"),
                     fit: BoxFit.cover,
                   ),
                 ),
@@ -114,7 +114,7 @@ class _BitArtDetailArticleState extends State<BitArtDetailArticle> {
                                   style: TextStyle(fontWeight: FontWeight.bold),
                                 ),
                                 TextSpan(
-                                  text: args.name,
+                                  text: args.title ?? "",
                                 ),
                               ],
                             ),
@@ -142,7 +142,7 @@ class _BitArtDetailArticleState extends State<BitArtDetailArticle> {
                         children: [
                           SizedBox(height: 8),
                           Text(
-                            "\$ ${args.prix}",
+                            "\$ ${args.price ?? 0}",
                             style: TextStyle(
                                 fontSize: 18, fontWeight: FontWeight.bold),
                           ),
@@ -156,7 +156,7 @@ class _BitArtDetailArticleState extends State<BitArtDetailArticle> {
                                 size: 18,
                               ),
                               Text(
-                                '(${args.evaluation})',
+                                '(0)',
                                 //style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                               ),
                             ],

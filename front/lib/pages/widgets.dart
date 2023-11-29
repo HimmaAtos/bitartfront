@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors, unnecessary_brace_in_string_interps, avoid_unnecessary_containers, sized_box_for_whitespace, prefer_const_literals_to_create_immutables
+// ignore_for_file: prefer_const_constructors, unnecessary_brace_in_string_interps, avoid_unnecessary_containers, sized_box_for_whitespace, prefer_const_literals_to_create_immutables, prefer_const_literals_to_create_immutables, must_be_immutable, use_key_in_widget_constructors, sort_child_properties_last
 
 import 'package:flutter/material.dart';
 import 'package:front/models/ArticleModel.dart';
@@ -24,7 +24,7 @@ class TitleBar extends StatelessWidget {
         )),
         trailing: Icon(
           Icons.add_shopping_cart,
-          color: Colors.orange,
+          color: Colors.amber,
         ),
       ),
     );
@@ -128,7 +128,7 @@ class CardE extends StatelessWidget {
                     children: [
                       Icon(
                         Icons.star,
-                        color: Colors.orange,
+                        color: Colors.amber,
                         size: 15,
                       ),
                       Text(
@@ -162,7 +162,7 @@ class CardE extends StatelessWidget {
                 Container(
                   margin: EdgeInsets.only(bottom: 8, right: 8),
                   decoration: BoxDecoration(
-                      color: Colors.orange,
+                      color: Colors.amber,
                       borderRadius: BorderRadius.all(Radius.circular(7))),
                   width: 65,
                   height: 30,
@@ -173,11 +173,11 @@ class CardE extends StatelessWidget {
                         context,
                         "/details",
                         arguments: ArticleModel(
-                          pathImage: pathImage,
-                          name: name,
+                          image: pathImage,
+                          title: name,
                           description: miniText,
-                          prix: price,
-                          evaluation: evaluation,
+                          price: int.parse(price),
+                          // evaluation: evaluation,
                         ),
                       );
                     },
@@ -365,18 +365,11 @@ Widget sideBard(BuildContext context) {
               size: 24,
             ),
           ),
-          title: TextButton(
-            onPressed: () {
-              Navigator.of(context).pushNamed(
-                "/myspace",
-              );
-            },
-            child: Text(
-              'Mon Espace',
-              style: TextStyle(
-                color: Colors.black,
-                fontSize: 16,
-              ),
+          title: Text(
+            'Mon Espace',
+            style: TextStyle(
+              color: Colors.black,
+              fontSize: 16,
             ),
           ),
         ),
@@ -916,13 +909,16 @@ class InputField extends StatelessWidget {
   bool isfilled;
   Color? backgroundColor;
   String? placeHolder;
+  double? maxLength;
 
-  InputField(
-      {this.content,
-      required this.hiddeContent,
-      required this.isfilled,
-      this.backgroundColor,
-      this.placeHolder});
+  InputField({
+    this.content,
+    required this.hiddeContent,
+    required this.isfilled,
+    this.backgroundColor,
+    this.placeHolder,
+    this.maxLength,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -952,129 +948,96 @@ class InputField extends StatelessWidget {
   }
 }
 
-Widget TopBarMySpace(BuildContext context) {
-  return Material(
-    //color: Color(0xDB2C736C),
-    child: ListTile(
-      //selected: true,
-      tileColor: Color(0xDB2C736C),
-      leading: IconButton(
-        icon: Icon(Icons.arrow_back, color: Colors.black),
-        onPressed: () {
-          Navigator.pop(context);
-        },
-      ),
-      title: Center(
-          child: Text(
-        "MON ESPACE",
-        style: TextStyle(color: Colors.white),
-      )),
-      /*trailing: Icon(
-          Icons.add_shopping_cart,
-          color: Colors.orange,
-        )*/
-    ),
-  );
-}
+/*
+Container(
+                                  padding: EdgeInsets.only(top: 30, left: 30),
+                                  child: SizedBox(
+                                    width: 300,
+                                    height: 50,
+                                    child:  InputField(
+                                    content: passwordController,
+                                    hiddeContent: true,
+                                    isfilled: true,
+                                    placeHolder: "Password",
+                                    backgroundColor: Colors.grey[200],
+                                  )
+                                  ),
+                                )
+*/
 
-Widget mySpaceElement(
-    String pathImage, String nom, String prix, String desc, String evaluation) {
-  return Container(
-    width: double.infinity,
-    margin: EdgeInsets.symmetric(vertical: 5),
-    child: Column(
-      children: [
-        Container(
-            child: Image(
-          image: AssetImage(pathImage),
-          //width: double.,
-        )),
-        Container(
-          margin: EdgeInsets.symmetric(horizontal: 25, vertical: 10),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                nom,
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 20,
-                ),
-              ),
-              Text("B ${prix}")
-            ],
-          ),
-        ),
-        Container(
-          margin: EdgeInsets.symmetric(
-            horizontal: 25,
-            vertical: 5,
-          ),
-          child: Text(desc),
-        ),
-        Container(
-          margin: EdgeInsets.symmetric(
-            horizontal: 25,
-          ),
-          child:
-              Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-            Container(
-              child: Row(
-                children: [
-                  Icon(
-                    Icons.star,
-                    color: Colors.orange,
-                    size: 15,
-                  ),
-                  Text(evaluation),
-                ],
-              ),
-            ),
-            Container(
-              child: Row(children: [
-                Container(
-                    padding: EdgeInsets.all(2),
-                    margin: EdgeInsets.all(5),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.all(Radius.circular(5)),
-                      color: Color(0x3F000000),
-                    ),
-                    child: Icon(
-                      Icons.list,
-                      color: Color(0xFF2C736C),
-                      size: 25,
-                    )),
-                Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.all(Radius.circular(5)),
-                    color: Color(0x3F000000),
-                  ),
-                  padding: EdgeInsets.all(2),
-                  margin: EdgeInsets.all(5),
-                  child: Icon(
-                    Icons.edit,
-                    color: Color(0xFF2C736C),
-                    size: 25,
-                  ),
-                ),
-                Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.all(Radius.circular(5)),
-                    color: Color(0x3F000000),
-                  ),
-                  padding: EdgeInsets.all(2),
-                  margin: EdgeInsets.all(5),
-                  child: Icon(
-                    Icons.delete,
-                    color: Color(0xFF2C736C),
-                    size: 25,
-                  ),
-                ),
-              ]),
-            )
-          ]),
-        )
-      ],
-    ),
-  );
-}
+/*
+class FieldContainer extends StatelessWidget {
+  double margin_top, margin_bottom, margin_left, margin_right, 
+    padding_top,;
+  FieldContainer({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const Placeholder();
+  }
+}*/
+
+
+// sample
+/*
+Row(
+                            crossAxisAlignment: CrossAxisAlignment.end,
+                            children: [
+                              Expanded(
+                                flex: 4,
+                                child: Container(
+                                  padding: EdgeInsets.only(top: 30, left: 30),
+                                  child: SizedBox(
+                                    width: 300,
+                                    height: 50,
+                                    child: TextFormField(
+                                      controller: emailController,
+                                      validator: (value) {
+                                        if (value == null || value.isEmpty) {
+                                          return "Saisir un email valide !";
+                                        }
+                                      },
+
+                                      obscureText: false,
+                                      style: TextStyle(
+                                          color:
+                                              Colors.black), // Set text color
+                                      decoration: InputDecoration(
+                                        filled: true,
+                                        fillColor: Colors.grey[
+                                            200], // Set light gray background color
+                                        border: OutlineInputBorder(
+                                          borderSide:
+                                              BorderSide.none, // Remove border
+                                          borderRadius: BorderRadius.circular(
+                                              5), // Add border radius
+                                        ),
+                                        hintText: 'Email',
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              Expanded(
+                                  flex: 1,
+                                  child: Container(
+                                    //width: 10,
+                                    padding: EdgeInsets.symmetric(vertical: 15),
+                                    margin: EdgeInsets.only(right: 30),
+                                    child: Center(
+                                      child: Icon(
+                                        Icons.mail,
+                                        size: 20,
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                    decoration: const BoxDecoration(
+                                        //border : Border.all(width : 1, color : Colors.black),
+                                        color: Color(0xDB2C736C),
+                                        borderRadius: BorderRadius.only(
+                                            topRight: Radius.circular(5),
+                                            bottomRight: Radius.circular(5))),
+                                  ))
+                            ],
+                          ),
+                                  */

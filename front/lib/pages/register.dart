@@ -372,8 +372,14 @@ class _RegisterState extends State<Register> {
                                 // appel de la fonction register pour envoyer les resquetes
                                 var resultat =
                                     UtilisateurState().register(user, context);
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                    SnackBar(
+                                        content: Text("Inscription reussie")));
+                                Navigator.of(context).pushNamed(
+                                  "/LoginPage",
+                                );
 
-                                if (window.localStorage["status"] == "succes") {
+                                /* if (window.localStorage["status"] == "succes") {
                                   ScaffoldMessenger.of(context).showSnackBar(
                                       SnackBar(
                                           content:
@@ -386,7 +392,7 @@ class _RegisterState extends State<Register> {
                                       SnackBar(
                                           content: Text(
                                               "L'inscription n'a pas aboutie")));
-                                }
+                                }*/
                               },
                               style: TextButton.styleFrom(
                                 padding: EdgeInsets.symmetric(vertical: 10),

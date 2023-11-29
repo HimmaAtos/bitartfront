@@ -1,7 +1,8 @@
-// ignore_for_file: avoid_unnecessary_containers, prefer_const_constructors
+// ignore_for_file: avoid_unnecessary_containers, prefer_const_constructors, unused_import
 
 import 'package:flutter/material.dart';
 import 'package:front/models/ArticleModel.dart';
+import 'package:front/pages/card_article_widget.dart';
 import 'package:front/pages/widgets.dart';
 import 'package:front/services/articleService.dart';
 import 'package:provider/provider.dart';
@@ -77,7 +78,7 @@ class _HomeState extends State<Home> {
     },
   ];
 
-  /* @override
+  @override
   void didChangeDependencies() async {
     if (_init) {
       _isLoding =
@@ -86,11 +87,11 @@ class _HomeState extends State<Home> {
     }
     _init = false;
     super.didChangeDependencies();
-  }*/
+  }
 
   @override
   Widget build(BuildContext context) {
-    //dynamic _article = Provider.of<ArticleState>(context).arts;
+    List<ArticleModel> _articles = Provider.of<ArticleState>(context).arts;
     return Scaffold(
       backgroundColor: Color(0xFFF6F9FF),
       appBar: AppBar(
@@ -104,9 +105,10 @@ class _HomeState extends State<Home> {
         ],
       ),
       drawer: sideBard(context),
-      body: Center(
+      body: Padding(
+        padding: const EdgeInsets.all(8.0),
         child: SingleChildScrollView(
-          child: Column(children: [
+          child: Column(mainAxisAlignment: MainAxisAlignment.start, children: [
             //TitleBar(),
             FieldSearch(),
             /*CardE(
@@ -119,10 +121,10 @@ class _HomeState extends State<Home> {
             Container(
               child: ListView.builder(
                   shrinkWrap: true,
-                  itemCount: 4,
+                  itemCount: _articles.length,
                   physics: NeverScrollableScrollPhysics(),
                   itemBuilder: (context, index) {
-                    return customRow(elements[index], elements2[index]);
+                    return ArticleCard(context, _articles[index]);
                     /*Row(children: [
                       CardE(
                           pathImage: elements[index]["pathImage"],
@@ -139,6 +141,24 @@ class _HomeState extends State<Home> {
                     ]);*/
                   }),
             )
+            // Container(
+            //     child: GridView.builder(
+            //         gridDelegate:
+            //             const SliverGridDelegateWithMaxCrossAxisExtent(
+            //                 maxCrossAxisExtent: 200,
+            //                 childAspectRatio: 3 / 2,
+            //                 crossAxisSpacing: 20,
+            //                 mainAxisSpacing: 20),
+            //         itemCount: _articles.length,
+            //         itemBuilder: (BuildContext ctx, index) {
+            //           return Container(
+            //             alignment: Alignment.center,
+            //             decoration: BoxDecoration(
+            //                 color: Colors.amber,
+            //                 borderRadius: BorderRadius.circular(15)),
+            //             child: Text(_articles[index].title ?? "dljkd"),
+            //           );
+            //         }))
           ]),
         ),
       ),

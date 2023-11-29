@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
+import 'package:front/pages/mySpaceElement_widget.dart';
 import 'package:front/pages/widgets.dart';
 
 class MySpace extends StatefulWidget {
@@ -136,7 +137,7 @@ class _MySpaceState extends State<MySpace> {
           Icons.add,
           color: Colors.white,
         ),
-        foregroundColor: Color(0xFFE3B71D),
+        backgroundColor: Color(0xFFE3B71D),
       ),
     );
   }

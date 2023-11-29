@@ -7,6 +7,7 @@ import 'package:front/models/UtilisateurModel.dart';
 //import 'package:localstorage/localstorage.dart';
 
 import 'package:http/http.dart' as http;
+import 'package:localstorage/localstorage.dart';
 
 // import 'package:localstorage/localstorage.dart';
 
@@ -14,6 +15,7 @@ import 'package:http/http.dart' as http;
 
 class UtilisateurState {
   Future<bool> register(UtilisateurModel user, BuildContext context) async {
+    LocalStorage my_storage = new LocalStorage("user");
     try {
       String urlRegister = 'http://10.0.2.2:8000/register';
       http.Response response = await http.post(
@@ -33,8 +35,11 @@ class UtilisateurState {
         }),
       );
       var data = json.decode(response.body);
+      print(data);
+      /*await my_storage.ready;
+      my_storage.setItem("key", value)*/
       if (response.statusCode == 200) {
-        window.localStorage['status'] = "succes";
+        //window.localStorage['status'] = "succes";
 
         //storage.setItem('success', 'yes');
       }
@@ -81,7 +86,7 @@ class UtilisateurState {
       print(response.statusCode);
 
       if (response.statusCode == 200) {
-        window.localStorage['status'] = "succes";
+        //window.localStorage['status'] = "succes";
 
         //storage.setItem('success', 'yes');
       }
