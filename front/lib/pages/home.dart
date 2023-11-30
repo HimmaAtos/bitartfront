@@ -120,9 +120,10 @@ class _HomeState extends State<Home> {
 
             Container(
               child: GridView.builder(
-                  gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
+                  gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
                       maxCrossAxisExtent: 200,
-                      childAspectRatio: 0.65,
+                      childAspectRatio: MediaQuery.of(context).size.width /
+                          (MediaQuery.of(context).size.height / 1.4),
                       crossAxisSpacing: 20,
                       mainAxisSpacing: 20),
                   shrinkWrap: true,

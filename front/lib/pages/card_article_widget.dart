@@ -13,7 +13,7 @@ Widget ArticleCard(BuildContext context, ArticleModel articleModel) {
         Container(
             padding: EdgeInsets.only(bottom: 2),
             child: Image.asset(
-              "${backend}${articleModel.image}" ?? "images/art4.png",
+              "images/art4.png", // "${backend}${articleModel.image}" ??
               height: 150,
               width: 250,
               fit: BoxFit.cover,
