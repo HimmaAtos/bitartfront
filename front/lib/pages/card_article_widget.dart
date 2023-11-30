@@ -13,14 +13,12 @@ Widget ArticleCard(BuildContext context, ArticleModel articleModel) {
         Container(
             padding: EdgeInsets.only(bottom: 2),
             child: Image.asset(
-              "images/art4.png",
+              "${backend}${articleModel.image}" ?? "images/art4.png",
               height: 150,
               width: 250,
               fit: BoxFit.cover,
-            )
-            // child: Image.network("image/art4.png")
-            // "${backend}${articleModel.image}"
-            ),
+            )),
+        // child: Image.network("${backend}${articleModel.image}")),
         Container(
             child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,

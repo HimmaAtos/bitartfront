@@ -237,26 +237,26 @@ class _BitArtLoginPageState extends State<BitArtLoginPage> {
                                 email: emailController.text,
                                 password: passwordController.text);
 
-                            UtilisateurState()
-                                .login(emailController.text,
-                                    passwordController.text, context)
-                                .then((value) => {
-                                      if (value)
-                                        {
-                                          ScaffoldMessenger.of(context)
-                                              .showSnackBar(SnackBar(
-                                                  content: Text('Bienvenue')))
-                                        }
-                                      else
-                                        {
-                                          ScaffoldMessenger.of(context)
-                                              .showSnackBar(SnackBar(
-                                                  content: Text(
-                                                      'email ou mot de passe'))),
-                                        }
-                                    });
-
+                            UtilisateurState().loginn(user, context);
                             //print(UtilisateurState().data)
+                            /* await my_storage.ready;
+                            if (my_storage.getItem("response_login") == 200) {
+                              print(my_storage.getItem("response_login"));
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                  SnackBar(content: Text("Bienvenue")));
+                              Navigator.of(context).pushNamed(
+                                "/home",
+                              );
+                            } else if (my_storage.getItem("response_login") ==
+                                0) {
+                              print("voici");
+                              print(my_storage.getItem("response_login"));
+
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                  SnackBar(
+                                      content: Text(
+                                          "Email ou mot de passe invalide")));
+                            }*/
                           },
                           style: TextButton.styleFrom(
                             padding: EdgeInsets.symmetric(vertical: 10),

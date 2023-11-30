@@ -3,6 +3,7 @@ import 'dart:html';
 //import 'dart:js_util';
 
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:front/models/UtilisateurModel.dart';
 //import 'package:localstorage/localstorage.dart';
 
@@ -95,7 +96,7 @@ class UtilisateurState {
     }
   }
 
-  /*Future<bool> login(UtilisateurModel user, BuildContext context) async {
+  Future<bool> loginn(UtilisateurModel user, BuildContext context) async {
     try {
       String urlRegister = '${backend}/login';
       http.Response response = await http.post(
@@ -117,15 +118,25 @@ class UtilisateurState {
       my_storage.setItem("response_login", 200);
       my_storage.setItem("user", data["user"]);
 
-      return Future.value(false);
+      if (response.statusCode == 200) {
+        Navigator.of(context).pushNamed("/home");
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+            content: Text(
+                "Bienvenue cher utilisateur ${data["user"]["first_name"]}")));
+      } else {
+        ScaffoldMessenger.of(context)
+            .showSnackBar(SnackBar(content: Text("Informations invalides !")));
+      }
+
+      return true;
     } catch (e) {
       print("error loginnow");
       print("details de l'erreur");
       print(e);
-      await my_storage.ready;
-      my_storage.setItem("response_login", 0);
+      ScaffoldMessenger.of(context)
+          .showSnackBar(SnackBar(content: Text("Informations invalides !")));
 
-      return Future.value(false);
+      return false;
     }
-  }*/
+  }
 }

@@ -1,10 +1,14 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:front/models/ArticleModel.dart';
 import 'package:front/pages/widgets.dart';
 
 class AddArticle2 extends StatefulWidget {
-  const AddArticle2({super.key});
+  // const AddArticle2({super.key});
+
+  final ArticleModel articleModel;
+  AddArticle2({required this.articleModel});
 
   @override
   State<AddArticle2> createState() => _AddArticle2State();

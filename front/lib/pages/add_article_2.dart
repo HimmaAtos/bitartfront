@@ -229,10 +229,14 @@ class _AddArticle2State extends State<AddArticle2> {
                                   new_article.title =
                                       article_storage.getItem("title");
                                   new_article.description =
-                                      article_storage.getItem("description");
+                                      descriptionController.text;
 
-                                  final response =
-                                      AddArticleState().AddArticle(new_article);
+                                  final response = ArticleState()
+                                      .AddArticle(new_article)
+                                      .then((value) => {
+                                            Navigator.of(context)
+                                                .pushNamed("/home")
+                                          });
                                 },
                                 style: TextButton.styleFrom(
                                   padding: EdgeInsets.symmetric(vertical: 10),

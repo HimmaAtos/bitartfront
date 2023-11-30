@@ -126,36 +126,26 @@ class ArticleState with ChangeNotifier {
     }
   }
 
-  List<ArticleModel> get arts {
-    if (_articles != null) {
-      return [..._articles];
-    }
-    return [];
-  }
-}
-
-class AddArticleState {
   Future<bool> AddArticle(ArticleModel article) async {
+    LocalStorage my_storage = new LocalStorage("space");
     try {
-      String urlAdd = "${backend}/addArticle";
+      String urlAdd = "${backend}/articles/";
       http.Response response = await http.post(
         Uri.parse(urlAdd),
         headers: {
           "Content-Type": "application/json",
         },
         body: json.encode({
-          "image": article.image,
-          "name": article.title,
-          "tools": "",
-          "support": "",
+          // "image": "",
+          "title": article.title,
           "description": article.description,
-          "prix": article.price,
-          "evaluation": "0000",
+          "price": 20,
+          "owner": my_storage.getItem("user")["id"]
         }),
       );
       var data = json.decode(response.body);
-      print(data);
-
+      getArticles();
+      notifyListeners();
       return true;
     } catch (e) {
       print("error loginnow");
@@ -163,5 +153,12 @@ class AddArticleState {
       print(e);
       return false;
     }
+  }
+
+  List<ArticleModel> get arts {
+    if (_articles != null) {
+      return [..._articles];
+    }
+    return [];
   }
 }

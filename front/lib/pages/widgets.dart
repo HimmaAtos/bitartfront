@@ -281,7 +281,7 @@ Widget sideBard(BuildContext context) {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        "",
+                        "${my_storage.getItem("user")["first_name"]} ${my_storage.getItem("user")["last_name"]}",
                         style: TextStyle(
                           color: Colors.black,
                           fontSize: 18,
@@ -368,16 +368,22 @@ Widget sideBard(BuildContext context) {
               size: 24,
             ),
           ),
-          title: TextButton(
-            onPressed: () {
+          onTap: () {
+            // Navigator.push(
+            //   context,
+            //   // MaterialPageRoute(
+            //   //   // builder: (context) => AddArticle2(),
+            //   // ),
+            // );
+            {
               Navigator.of(context).pushNamed("/myspace");
-            },
-            child: Text(
-              'Mon Espace',
-              style: TextStyle(
-                color: Colors.black,
-                fontSize: 16,
-              ),
+            }
+          },
+          title: Text(
+            'Mon Espace',
+            style: TextStyle(
+              color: Colors.black,
+              fontSize: 16,
             ),
           ),
         ),

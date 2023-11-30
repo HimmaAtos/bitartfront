@@ -1,5 +1,6 @@
 // ignore_for_file: unused_import, prefer_const_constructors, avoid_unnecessary_containers, sort_child_properties_last, prefer_const_literals_to_create_immutables, avoid_print
 
+import 'package:front/pages/add_article2.dart';
 import 'package:http/http.dart' as http;
 import 'package:front/pages/success.dart';
 import 'package:localstorage/localstorage.dart';
@@ -313,6 +314,11 @@ class _AddArticleState extends State<AddArticle> {
                                   print("in process");
                                   // _toggleSuccess();
                                   await article_storage.ready;
+                                  ArticleModel articleModel =
+                                      new ArticleModel();
+                                  articleModel.title = titleController.text;
+                                  articleModel.description =
+                                      titleController.text;
                                   article_storage.setItem(
                                       "title", titleController.text);
                                   article_storage.setItem(
@@ -322,6 +328,7 @@ class _AddArticleState extends State<AddArticle> {
                                   article_storage.setItem(
                                       "outils", outilController.text);
                                   Navigator.of(context).pushNamed("/add2");
+                                  // Navigator.of(context).pushNamed("/add2");
                                 },
 
                                 // style: TextButton.styleFrom(
