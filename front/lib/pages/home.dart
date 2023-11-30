@@ -49,7 +49,7 @@ class _HomeState extends State<Home> {
   ];
   final List elements2 = [
     {
-      "pathImage": "images/art4.png",
+      "pathImage": "images/bitArt-logo.png",
       "name": "De l'art",
       "evaluation": "20",
       "miniText": "du mini textt encore",
@@ -117,7 +117,15 @@ class _HomeState extends State<Home> {
                 evaluation: "12",
                 miniText: "Ceci est une palette de couleur",
                 price: "200"),*/
-
+            Container(
+              child: ListView.builder(
+                  shrinkWrap: true,
+                  itemCount: elements.length ?? 6,
+                  physics: NeverScrollableScrollPhysics(),
+                  itemBuilder: (context, index) {
+                    return customRow(elements[index], elements2[index]);
+                  }),
+            ),
             Container(
               child: GridView.builder(
                   gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(

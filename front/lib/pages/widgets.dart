@@ -93,108 +93,123 @@ class CardE extends StatelessWidget {
     return Container(
       //margin: EdgeInsets.only(bottom: 10, left: 10),
       width: 180,
-      child: Card(
-        shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.all(Radius.circular(20))),
-        child: Column(children: [
-          Container(
-              padding: EdgeInsets.only(bottom: 2),
-              child: Image.asset(
-                pathImage,
-                height: 150,
-                width: 250,
-              )),
-          Container(
-              child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  //mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                Expanded(
-                  child: Container(
-                    padding: EdgeInsets.only(left: 14),
-                    child: Text(
-                      name,
-                      style:
-                          TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
-                    ),
-                  ),
-                ),
-                /*SizedBox(
-                  width: 10,
-                ),*/
-                Container(
-                  margin: EdgeInsets.only(right: 10),
-                  child: Row(
-                    //mainAxisAlignment: MainAxisAlignment.center,
+      child: GestureDetector(
+        onTap: () {
+          Navigator.pushNamed(
+            context,
+            "/details",
+            arguments: ArticleModel(
+              image: pathImage,
+              title: name,
+              description: miniText,
+              price: int.parse(price),
+              // evaluation: evaluation,
+            ),
+          );
+        },
+        child: Card(
+          shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.all(Radius.circular(20))),
+          child: Column(children: [
+            Container(
+                padding: EdgeInsets.only(bottom: 2),
+                child: Image.asset(
+                  pathImage,
+                  height: 150,
+                  width: 250,
+                )),
+            Container(
+                child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    //mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Icon(
-                        Icons.star,
-                        color: Colors.amber,
-                        size: 15,
+                  Expanded(
+                    child: Container(
+                      padding: EdgeInsets.only(left: 14),
+                      child: Text(
+                        name,
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 16),
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
                       ),
-                      Text(
-                        "(${evaluation})",
-                        style:
-                            TextStyle(fontSize: 12, color: Colors.green[500]),
-                      )
-                    ],
-                  ),
-                )
-              ])),
-          Container(
-            //margin: EdgeInsets.symmetric(vertical: 12),
-            padding: EdgeInsets.symmetric(vertical: 12, horizontal: 10),
-            child: Text(
-              miniText,
-              style: TextStyle(fontSize: 12, color: Colors.grey),
-            ),
-          ),
-          Container(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Container(
-                  margin: EdgeInsets.only(left: 10),
-                  child: Text(
-                    price,
-                    style: TextStyle(fontSize: 15, color: Colors.black),
-                  ),
-                ),
-                Container(
-                  margin: EdgeInsets.only(bottom: 8, right: 8),
-                  decoration: BoxDecoration(
-                      color: Colors.amber,
-                      borderRadius: BorderRadius.all(Radius.circular(7))),
-                  width: 65,
-                  height: 30,
-                  child: Center(
-                      child: IconButton(
-                    onPressed: () {
-                      Navigator.pushNamed(
-                        context,
-                        "/details",
-                        arguments: ArticleModel(
-                          image: pathImage,
-                          title: name,
-                          description: miniText,
-                          price: int.parse(price),
-                          // evaluation: evaluation,
-                        ),
-                      );
-                    },
-                    icon: Icon(
-                      Icons.add_shopping_cart,
-                      size: 20,
                     ),
-                    color: Colors.white,
-                  )),
-                )
-              ],
+                  ),
+                  /*SizedBox(
+                    width: 10,
+                  ),*/
+                  Container(
+                    margin: EdgeInsets.only(right: 10),
+                    child: Row(
+                      //mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(
+                          Icons.star,
+                          color: Colors.amber,
+                          size: 15,
+                        ),
+                        Text(
+                          "(${evaluation})",
+                          style:
+                              TextStyle(fontSize: 12, color: Colors.green[500]),
+                        )
+                      ],
+                    ),
+                  )
+                ])),
+            Container(
+              //margin: EdgeInsets.symmetric(vertical: 12),
+              padding: EdgeInsets.symmetric(vertical: 12, horizontal: 10),
+              child: Text(
+                miniText,
+                style: TextStyle(fontSize: 12, color: Colors.grey),
+              ),
             ),
-          )
-        ]),
+            Container(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Container(
+                    margin: EdgeInsets.only(left: 10),
+                    child: Text(
+                      price,
+                      style: TextStyle(fontSize: 15, color: Colors.black),
+                    ),
+                  ),
+                  Container(
+                    margin: EdgeInsets.only(bottom: 8, right: 8),
+                    decoration: BoxDecoration(
+                        color: Colors.amber,
+                        borderRadius: BorderRadius.all(Radius.circular(7))),
+                    width: 65,
+                    height: 30,
+                    child: Center(
+                        child: IconButton(
+                      onPressed: () {
+                        // Navigator.pushNamed(
+                        //   context,
+                        //   "/details",
+                        //   arguments: ArticleModel(
+                        //     image: pathImage,
+                        //     title: name,
+                        //     description: miniText,
+                        //     price: int.parse(price),
+                        //     // evaluation: evaluation,
+                        //   ),
+                        // );
+                      },
+                      icon: Icon(
+                        Icons.add_shopping_cart,
+                        size: 20,
+                      ),
+                      color: Colors.white,
+                    )),
+                  )
+                ],
+              ),
+            )
+          ]),
+        ),
       ),
     );
   }
@@ -229,7 +244,7 @@ class CustomizedRow extends StatelessWidget {
 
 Widget customRow(Map infos1, Map infos2) {
   return Container(
-    margin: EdgeInsets.symmetric(horizontal: 25),
+    margin: EdgeInsets.symmetric(horizontal: 10),
     child: Row(
       children: [
         CardE(

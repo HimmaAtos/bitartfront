@@ -5,6 +5,8 @@ import 'package:front/models/ArticleModel.dart';
 import 'package:front/pages/widgets.dart';
 import 'package:front/services/articleService.dart';
 import 'package:localstorage/localstorage.dart';
+import 'package:image_picker/image_picker.dart';
+import 'dart:io';
 
 class AddArticle2 extends StatefulWidget {
   const AddArticle2({super.key});
@@ -15,6 +17,22 @@ class AddArticle2 extends StatefulWidget {
 
 class _AddArticle2State extends State<AddArticle2> {
   LocalStorage article_storage = new LocalStorage("article");
+
+  // Code for image
+  File? _image;
+  PickedFile? _pickedFile;
+  final _picker = ImagePicker();
+
+  //
+  Future<void> _pickImage() async {
+    _pickedFile = await _picker.getImage(source: ImageSource.gallery);
+
+    if (_pickedFile != null) {
+      setState(() {
+        _image = File(_pickedFile!.path);
+      });
+    }
+  }
 
   final descriptionController = TextEditingController();
   final imageController = TextEditingController();
@@ -133,14 +151,17 @@ class _AddArticle2State extends State<AddArticle2> {
                               shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(5)),
                             ),
-                            child: Center(
-                                child: IconButton(
-                              icon: Icon(
-                                Icons.upload_file,
-                                size: 40,
-                              ),
-                              onPressed: () {},
-                            )),
+                            child: GestureDetector(
+                              //onTap: () => _pickImage(),
+                              child: Center(
+                                  child: IconButton(
+                                icon: Icon(
+                                  Icons.upload_file,
+                                  size: 40,
+                                ),
+                                onPressed: () => _pickImage(),
+                              )),
+                            ),
                           ),
                         ),
                       ),
