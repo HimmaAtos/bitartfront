@@ -2,6 +2,7 @@
 // ignore_for_file: sort_child_properties_last, use_key_in_widget_constructors, unused_import, prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:front/pages/add_article.dart';
 import 'package:front/pages/add_article_2.dart';
 import 'package:front/pages/detail_article.dart';
 import 'package:front/pages/home.dart';
@@ -262,9 +263,12 @@ class MyApp extends StatelessWidget {
             "/register": (BuildContext context) => const Register(),
             "/home": (BuildContext context) => const Home(),
             "/details": (BuildContext context) => BitArtDetailArticle(),
+            "/myspace": (BuildContext context) => MySpace(),
+            "/add": (BuildContext context) => AddArticle(),
+            "/add2": (BuildContext context) => AddArticle2(),
             // "/secret": (BuildContext context) => const SecretPage(),
           },
-          initialRoute: "/home",
+          initialRoute: "/LoginPage",
           title: 'Bit\'Art',
           debugShowCheckedModeBanner: false,
           home: const BitArtWelcome(),

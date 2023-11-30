@@ -75,6 +75,17 @@ class _AddArticle2State extends State<AddArticle2> {
                                 color: Colors.green,
                               ),
                             ),
+                            Expanded(
+                              child: SizedBox(
+                                width:
+                                    20, // Adjust the width of the yellow line
+                                child: Container(
+                                  color:
+                                      Colors.amber, // Color of the yellow line
+                                  height: 1, // Height of the yellow line
+                                ),
+                              ),
+                            ),
                             Container(
                               padding: EdgeInsets.all(12),
                               child: Text("2"),

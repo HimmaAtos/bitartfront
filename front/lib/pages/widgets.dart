@@ -2,6 +2,9 @@
 
 import 'package:flutter/material.dart';
 import 'package:front/models/ArticleModel.dart';
+import 'package:localstorage/localstorage.dart';
+
+LocalStorage my_storage = new LocalStorage("space");
 
 class TitleBar extends StatelessWidget {
   const TitleBar({super.key});
@@ -278,7 +281,7 @@ Widget sideBard(BuildContext context) {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'Awa Faye',
+                        "",
                         style: TextStyle(
                           color: Colors.black,
                           fontSize: 18,
@@ -365,11 +368,16 @@ Widget sideBard(BuildContext context) {
               size: 24,
             ),
           ),
-          title: Text(
-            'Mon Espace',
-            style: TextStyle(
-              color: Colors.black,
-              fontSize: 16,
+          title: TextButton(
+            onPressed: () {
+              Navigator.of(context).pushNamed("/myspace");
+            },
+            child: Text(
+              'Mon Espace',
+              style: TextStyle(
+                color: Colors.black,
+                fontSize: 16,
+              ),
             ),
           ),
         ),

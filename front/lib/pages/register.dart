@@ -11,6 +11,7 @@ import 'package:front/models/UtilisateurModel.dart';
 import 'package:front/pages/widgets.dart';
 //import 'package:front/my_flutter_app_icons.dart';
 import 'package:http/http.dart' as http;
+import 'package:localstorage/localstorage.dart';
 import './../services/utilisateurService.dart';
 
 class Register extends StatefulWidget {
@@ -39,6 +40,8 @@ class _RegisterState extends State<Register> {
     //print(responseRequest.toString());
     //log(12);
   }
+
+  LocalStorage my_storage = new LocalStorage("space");
 
   @override
   Widget build(BuildContext context) {
@@ -370,14 +373,25 @@ class _RegisterState extends State<Register> {
                                 );
 
                                 // appel de la fonction register pour envoyer les resquetes
-                                var resultat =
-                                    UtilisateurState().register(user, context);
-                                ScaffoldMessenger.of(context).showSnackBar(
-                                    SnackBar(
-                                        content: Text("Inscription reussie")));
-                                Navigator.of(context).pushNamed(
-                                  "/LoginPage",
-                                );
+                                UtilisateurState().register(user, context);
+
+                                if (my_storage.getItem("response_register") ==
+                                    200) {
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                      SnackBar(
+                                          content:
+                                              Text("Inscription reussie")));
+                                  Navigator.of(context).pushNamed(
+                                    "/LoginPage",
+                                  );
+                                } else {
+                                  print(
+                                      my_storage.getItem("response_register"));
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                      SnackBar(
+                                          content: Text(
+                                              "L'inscription n'est pas passée")));
+                                }
 
                                 /* if (window.localStorage["status"] == "succes") {
                                   ScaffoldMessenger.of(context).showSnackBar(

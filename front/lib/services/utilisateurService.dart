@@ -9,15 +9,17 @@ import 'package:front/models/UtilisateurModel.dart';
 import 'package:http/http.dart' as http;
 import 'package:localstorage/localstorage.dart';
 
+import '../constante.dart';
+
 // import 'package:localstorage/localstorage.dart';
 
 //final my_app = new LocalStorage('my');
 
 class UtilisateurState {
+  LocalStorage my_storage = new LocalStorage("space");
   Future<bool> register(UtilisateurModel user, BuildContext context) async {
-    LocalStorage my_storage = new LocalStorage("user");
     try {
-      String urlRegister = 'http://10.0.2.2:8000/register';
+      String urlRegister = '${backend}/register';
       http.Response response = await http.post(
         Uri.parse(urlRegister),
         headers: {
@@ -36,42 +38,66 @@ class UtilisateurState {
       );
       var data = json.decode(response.body);
       print(data);
-      /*await my_storage.ready;
-      my_storage.setItem("key", value)*/
+      print(data["user"]);
+
+      // ici la requete s'est bien passée
+      await my_storage.ready;
+      my_storage.setItem("response_register", 200);
+
+      return true;
+    } catch (e) {
+      print("error register");
+      print("details de l'erreur");
+      print(e);
+      await my_storage.ready;
+      my_storage.setItem("response_register", 0);
+
+      return false;
+    }
+  }
+
+  Future<bool> login(String a, b, BuildContext context) async {
+    try {
+      String urlRegister = '${backend}/login';
+      print(b);
+      http.Response response = await http.post(
+        Uri.parse(urlRegister),
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: json.encode({
+          "password": b,
+          "email": a,
+        }),
+      );
+      var data = json.decode(response.body) as Map;
+      my_storage.setItem('user', response.body);
       if (response.statusCode == 200) {
-        //window.localStorage['status'] = "succes";
-
+        Navigator.of(context).pushNamed(
+          "/home",
+        );
+        return true;
         //storage.setItem('success', 'yes');
+      } else {
+        return false;
       }
-      print(data);
 
-      /*  
-      let's hundle the response
-       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                                    content: Text(
-                                        "Informations valides ${infosNewUser["first_name"]}")));
-      */
       /* if (data.containsKey('token')) {
         // storage.setItem('token', data['token']);
-
+ 
         // initParam();
         print(data['token']);
         //return false;
       }
       */
-      return data;
     } catch (e) {
-      print("error loginnow");
-      print("details de l'erreur");
-      print(e);
-
-      return true;
+      return false;
     }
   }
 
-  Future<bool> login(UtilisateurModel user, BuildContext context) async {
+  /*Future<bool> login(UtilisateurModel user, BuildContext context) async {
     try {
-      String urlRegister = 'http://10.0.2.2:8000/login';
+      String urlRegister = '${backend}/login';
       http.Response response = await http.post(
         Uri.parse(urlRegister),
         headers: {
@@ -84,28 +110,22 @@ class UtilisateurState {
       );
       var data = json.decode(response.body) as Map;
       print(response.statusCode);
+      print(data);
+      //print(data);
+      print(data["user"]);
+      await my_storage.ready;
+      my_storage.setItem("response_login", 200);
+      my_storage.setItem("user", data["user"]);
 
-      if (response.statusCode == 200) {
-        //window.localStorage['status'] = "succes";
-
-        //storage.setItem('success', 'yes');
-      }
-
-      /* if (data.containsKey('token')) {
-        // storage.setItem('token', data['token']);
-
-        // initParam();
-        print(data['token']);
-        //return false;
-      }
-      */
-      return true;
+      return Future.value(false);
     } catch (e) {
       print("error loginnow");
       print("details de l'erreur");
       print(e);
+      await my_storage.ready;
+      my_storage.setItem("response_login", 0);
 
-      return true;
+      return Future.value(false);
     }
-  }
+  }*/
 }

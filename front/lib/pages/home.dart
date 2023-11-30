@@ -119,7 +119,12 @@ class _HomeState extends State<Home> {
                 price: "200"),*/
 
             Container(
-              child: ListView.builder(
+              child: GridView.builder(
+                  gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
+                      maxCrossAxisExtent: 200,
+                      childAspectRatio: 0.65,
+                      crossAxisSpacing: 20,
+                      mainAxisSpacing: 20),
                   shrinkWrap: true,
                   itemCount: _articles.length,
                   physics: NeverScrollableScrollPhysics(),

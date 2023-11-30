@@ -7,6 +7,7 @@ import 'package:front/models/UtilisateurModel.dart';
 import 'package:front/services/utilisateurService.dart';
 
 import 'package:http/http.dart' as http;
+import 'package:localstorage/localstorage.dart';
 
 class BitArtLoginPage extends StatefulWidget {
   const BitArtLoginPage({super.key});
@@ -26,6 +27,8 @@ class _BitArtLoginPageState extends State<BitArtLoginPage> {
     print(responseRequest.toString());
     //log(12);
   }*/
+
+  LocalStorage my_storage = new LocalStorage("space");
 
   bool rememberMe = false;
   @override
@@ -229,25 +232,31 @@ class _BitArtLoginPageState extends State<BitArtLoginPage> {
                           ),
                         ),
                         child: TextButton(
-                          onPressed: () {
+                          onPressed: () async {
                             UtilisateurModel user = new UtilisateurModel(
                                 email: emailController.text,
                                 password: passwordController.text);
 
-                            UtilisateurState().login(user, context);
+                            UtilisateurState()
+                                .login(emailController.text,
+                                    passwordController.text, context)
+                                .then((value) => {
+                                      if (value)
+                                        {
+                                          ScaffoldMessenger.of(context)
+                                              .showSnackBar(SnackBar(
+                                                  content: Text('Bienvenue')))
+                                        }
+                                      else
+                                        {
+                                          ScaffoldMessenger.of(context)
+                                              .showSnackBar(SnackBar(
+                                                  content: Text(
+                                                      'email ou mot de passe'))),
+                                        }
+                                    });
+
                             //print(UtilisateurState().data)
-                            if (window.localStorage["status"] == "succes") {
-                              ScaffoldMessenger.of(context).showSnackBar(
-                                  SnackBar(content: Text("Bienvenue")));
-                              Navigator.of(context).pushNamed(
-                                "/home",
-                              );
-                            } else {
-                              ScaffoldMessenger.of(context).showSnackBar(
-                                  SnackBar(
-                                      content: Text(
-                                          "Email ou mot de passe invalide")));
-                            }
                           },
                           style: TextButton.styleFrom(
                             padding: EdgeInsets.symmetric(vertical: 10),

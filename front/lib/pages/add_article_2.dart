@@ -1,5 +1,10 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
+import 'package:front/models/ArticleModel.dart';
 import 'package:front/pages/widgets.dart';
+import 'package:front/services/articleService.dart';
+import 'package:localstorage/localstorage.dart';
 
 class AddArticle2 extends StatefulWidget {
   const AddArticle2({super.key});
@@ -9,6 +14,10 @@ class AddArticle2 extends StatefulWidget {
 }
 
 class _AddArticle2State extends State<AddArticle2> {
+  LocalStorage article_storage = new LocalStorage("article");
+
+  final descriptionController = TextEditingController();
+  final imageController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -68,13 +77,28 @@ class _AddArticle2State extends State<AddArticle2> {
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [
                             Container(
+                              margin: EdgeInsets.only(left: 50),
+                              padding: EdgeInsets.all(12),
                               child: Icon(
                                 Icons.verified_user_sharp,
                                 color: Colors.green,
                               ),
                             ),
+                            Expanded(
+                              child: SizedBox(
+                                width:
+                                    20, // Adjust the width of the yellow line
+                                child: Container(
+                                  color:
+                                      Colors.amber, // Color of the yellow line
+                                  height: 1, // Height of the yellow line
+                                ),
+                              ),
+                            ),
                             Container(
+                              margin: EdgeInsets.only(right: 50),
                               padding: EdgeInsets.all(12),
+                              //padding: EdgeInsets.all(12),
                               child: Text("2"),
                               decoration: ShapeDecoration(
                                 color: Color(0xFFE3B71D),
@@ -110,11 +134,13 @@ class _AddArticle2State extends State<AddArticle2> {
                                   borderRadius: BorderRadius.circular(5)),
                             ),
                             child: Center(
-                              child: Icon(
+                                child: IconButton(
+                              icon: Icon(
                                 Icons.upload_file,
                                 size: 40,
                               ),
-                            ),
+                              onPressed: () {},
+                            )),
                           ),
                         ),
                       ),
@@ -144,7 +170,13 @@ class _AddArticle2State extends State<AddArticle2> {
                               shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(5)),
                             ),
-                            child: Text("Decrivez votre oeuvre"),
+                            child: TextField(
+                              controller: descriptionController,
+                              keyboardType: TextInputType.multiline,
+                              maxLines: null,
+                              decoration: InputDecoration(
+                                  hintText: "Decrivez votre oeuvre"),
+                            ),
                           ),
                         ),
                       ),
@@ -190,12 +222,23 @@ class _AddArticle2State extends State<AddArticle2> {
                                 ),
                               ),
                               child: TextButton(
-                                onPressed: () {},
+                                onPressed: () {
+                                  ArticleModel new_article = new ArticleModel();
+                                  new_article.description =
+                                      article_storage.getItem("dimensions");
+                                  new_article.title =
+                                      article_storage.getItem("title");
+                                  new_article.description =
+                                      article_storage.getItem("description");
+
+                                  final response =
+                                      AddArticleState().AddArticle(new_article);
+                                },
                                 style: TextButton.styleFrom(
                                   padding: EdgeInsets.symmetric(vertical: 10),
                                 ),
                                 child: Text(
-                                  "CREATE",
+                                  "AJOUTER",
                                   style: TextStyle(
                                     color: Colors.white,
                                     fontSize: 18,

@@ -137,7 +137,7 @@ class ArticleState with ChangeNotifier {
 class AddArticleState {
   Future<bool> AddArticle(ArticleModel article) async {
     try {
-      String urlAdd = 'http://10.0.2.2:8000/addArticle';
+      String urlAdd = "${backend}/addArticle";
       http.Response response = await http.post(
         Uri.parse(urlAdd),
         headers: {
@@ -156,17 +156,12 @@ class AddArticleState {
       var data = json.decode(response.body);
       print(data);
 
-      if (response.statusCode == 200) {
-        print('Article a été ajouté avec success');
-      } else {
-        print(' article non ajouter');
-      }
-      return data;
+      return true;
     } catch (e) {
       print("error loginnow");
       print("details de l'erreur");
       print(e);
-      return true;
+      return false;
     }
   }
 }
